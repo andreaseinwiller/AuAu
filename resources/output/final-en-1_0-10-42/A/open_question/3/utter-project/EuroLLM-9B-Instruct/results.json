@@ -1,0 +1,582 @@
+[
+    {
+        "experiment_type": "open_question",
+        "open_response": "To determine if the given statement reflects different opinions about people's behavior and whether people hold different attitudes or beliefs regarding personal behavior, let's analyze the statement step by step.\n\nGiven Statement: I find it very annoying when unexpected visitors show up without announcing themselves first.\n\nStep 1: Identify the person's opinion\nThe person in the statement holds a specific opinion about the situation, which is that they find it annoying when unexpected visitors show up without announcing themselves first.\n\nStep 2: Evaluate the statement for different opinions\nNow, we'll consider whether there might be other individuals with differing viewpoints or beliefs about personal behavior in this specific context. Various people may have different opinions about the appropriateness and etiquette of unexpected visits. Some may also share the same annoyance when visitors don't announce themselves first, while others might not mind the surprise visits as much or even welcome them.\n\nStep 3: Conclusion\nThe given statement does reflect different opinions about people's behavior, as people have varying attitudes and beliefs concerning personal behavior in situations involving unexpected visitors. Although the person in the statement explicitly states that they find it annoying, it's clear that not everyone shares the same sentiment.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "To determine if the given statement reflects different opinions about people's behavior and whether people hold different attitudes or beliefs regarding personal behavior, let's analyze the statement step by step.\n\nGiven Statement: I find it very annoying when unexpected visitors show up without announcing themselves first.\n\nStep 1: Identify the person's opinion\nThe person in the statement holds a specific opinion about the situation, which is that they find it annoying when unexpected visitors show up without announcing themselves first.\n\nStep 2: Evaluate the statement for different opinions\nNow, we'll consider whether there might be other individuals with differing viewpoints or beliefs about personal behavior in this specific context. Various people may have different opinions about the appropriateness and etiquette of unexpected visits. Some may also share the same annoyance when visitors don't announce themselves first, while others might not mind the surprise visits as much or even welcome them.\n\nStep 3: Conclusion\nThe given statement does reflect different opinions about people's behavior, as people have varying attitudes and beliefs concerning personal behavior in situations involving unexpected visitors. Although the person in the statement explicitly states that they find it annoying, it's clear that not everyone shares the same sentiment.",
+            "prompt_tokens": 87,
+            "completion_tokens": 266,
+            "total_tokens": 353,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874735",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nTo determine if the given statement reflects different opinions about people's behavior and whether people hold different attitudes or beliefs regarding personal behavior, let's analyze the statement step by step.\n\nGiven Statement: I find it very annoying when unexpected visitors show up without announcing themselves first.\n\nStep 1: Identify the person's opinion\nThe person in the statement holds a specific opinion about the situation, which is that they find it annoying when unexpected visitors show up without announcing themselves first.\n\nStep 2: Evaluate the statement for different opinions\nNow, we'll consider whether there might be other individuals with differing viewpoints or beliefs about personal behavior in this specific context. Various people may have different opinions about the appropriateness and etiquette of unexpected visits. Some may also share the same annoyance when visitors don't announce themselves first, while others might not mind the surprise visits as much or even welcome them.\n\nStep 3: Conclusion\nThe given statement does reflect different opinions about people's behavior, as people have varying attitudes and beliefs concerning personal behavior in situations involving unexpected visitors. Although the person in the statement explicitly states that they find it annoying, it's clear that not everyone shares the same sentiment.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1142,
+                "completion_tokens": 18,
+                "total_tokens": 1160,
+                "start_time": "2026-01-14T09:32:40.893110",
+                "end_time": "2026-01-14T09:32:52.203264",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Step 1: Analyze the statement\nThe given statement expresses a feeling of annoyance towards unexpected visitors who show up without announcing themselves first.\n\nStep 2: Identify the subject\nThe subject of this statement is the behavior of unexpected visitors and the effect it has on the speaker.\n\nStep 3: Consider alternative perspectives\nIt is essential to acknowledge that different people may have varying reactions to unexpected visitors. Some may welcome the surprise, while others, like the speaker, might find it annoying. The speaker's preference for having guests announce their arrival first is a personal preference that not everyone may share.\n\nStep 4: Evaluate whether the statement reflects an opinion or a fact\nThe statement communicates the speaker's emotional response to the situation, which indicates that it is an opinion rather than a fact. The speaker's feelings about unexpected visitors are subjective and may not apply to everyone.\n\nStep 5: Consider the implications of the statement\nThe statement highlights the importance of communication and consideration in social interactions. The speaker values the comfort and control of informing guests before their arrival, which may indicate attention to detail and manners. This emphasizes the need for respect in social etiquette, considering others' feelings and expectations.\n\nStep 6: Provide alternatives and potential outcomes\nIn response to the speaker's preference, potential alternatives could be seeking ways to accommodate their need for advance notification, allowing them to better prepare for unexpected guests. On the other hand, unexpected visitors may miss the opportunity to make their guest feel welcomed or valued by not announcing their arrival.\n\nOutput: The statement reflects the speaker's opinion on the matter, emphasizing their personal preference for advance notification of visitors. This statement may not be universally shared, as people have different mannerisms and social expectations. By analyzing and considering these perspectives, we can work towards creating an environment where people feel valued and respected in social interactions.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "Step 1: Analyze the statement\nThe given statement expresses a feeling of annoyance towards unexpected visitors who show up without announcing themselves first.\n\nStep 2: Identify the subject\nThe subject of this statement is the behavior of unexpected visitors and the effect it has on the speaker.\n\nStep 3: Consider alternative perspectives\nIt is essential to acknowledge that different people may have varying reactions to unexpected visitors. Some may welcome the surprise, while others, like the speaker, might find it annoying. The speaker's preference for having guests announce their arrival first is a personal preference that not everyone may share.\n\nStep 4: Evaluate whether the statement reflects an opinion or a fact\nThe statement communicates the speaker's emotional response to the situation, which indicates that it is an opinion rather than a fact. The speaker's feelings about unexpected visitors are subjective and may not apply to everyone.\n\nStep 5: Consider the implications of the statement\nThe statement highlights the importance of communication and consideration in social interactions. The speaker values the comfort and control of informing guests before their arrival, which may indicate attention to detail and manners. This emphasizes the need for respect in social etiquette, considering others' feelings and expectations.\n\nStep 6: Provide alternatives and potential outcomes\nIn response to the speaker's preference, potential alternatives could be seeking ways to accommodate their need for advance notification, allowing them to better prepare for unexpected guests. On the other hand, unexpected visitors may miss the opportunity to make their guest feel welcomed or valued by not announcing their arrival.\n\nOutput: The statement reflects the speaker's opinion on the matter, emphasizing their personal preference for advance notification of visitors. This statement may not be universally shared, as people have different mannerisms and social expectations. By analyzing and considering these perspectives, we can work towards creating an environment where people feel valued and respected in social interactions.",
+            "prompt_tokens": 87,
+            "completion_tokens": 408,
+            "total_tokens": 495,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874760",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nStep 1: Analyze the statement\nThe given statement expresses a feeling of annoyance towards unexpected visitors who show up without announcing themselves first.\n\nStep 2: Identify the subject\nThe subject of this statement is the behavior of unexpected visitors and the effect it has on the speaker.\n\nStep 3: Consider alternative perspectives\nIt is essential to acknowledge that different people may have varying reactions to unexpected visitors. Some may welcome the surprise, while others, like the speaker, might find it annoying. The speaker's preference for having guests announce their arrival first is a personal preference that not everyone may share.\n\nStep 4: Evaluate whether the statement reflects an opinion or a fact\nThe statement communicates the speaker's emotional response to the situation, which indicates that it is an opinion rather than a fact. The speaker's feelings about unexpected visitors are subjective and may not apply to everyone.\n\nStep 5: Consider the implications of the statement\nThe statement highlights the importance of communication and consideration in social interactions. The speaker values the comfort and control of informing guests before their arrival, which may indicate attention to detail and manners. This emphasizes the need for respect in social etiquette, considering others' feelings and expectations.\n\nStep 6: Provide alternatives and potential outcomes\nIn response to the speaker's preference, potential alternatives could be seeking ways to accommodate their need for advance notification, allowing them to better prepare for unexpected guests. On the other hand, unexpected visitors may miss the opportunity to make their guest feel welcomed or valued by not announcing their arrival.\n\nOutput: The statement reflects the speaker's opinion on the matter, emphasizing their personal preference for advance notification of visitors. This statement may not be universally shared, as people have different mannerisms and social expectations. By analyzing and considering these perspectives, we can work towards creating an environment where people feel valued and respected in social interactions.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1278,
+                "completion_tokens": 18,
+                "total_tokens": 1296,
+                "start_time": "2026-01-14T09:32:40.889006",
+                "end_time": "2026-01-14T09:32:52.234594",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Step 1: The input states that the AI assistant finds it annoying when unexpected visitors show up without announcing themselves first. This reveals a personal preference for being prepared and maintaining control over one's environment.\n\nStep 2: Considering the frequency and unpredictability of getting unannounced guests, it's understandable that the AI might prefer to have some form of notice. This could be due to feelings of burden or being taken by surprise, which might make adjusting to the situation more difficult.\n\nStep 3: It's essential to note that this doesn't imply that all unannounced visitors are unwanted. However, within the given context, the AI's preference suggests that they value anticipation and lends to the idea that some might categorize these as \"unwelcome visitors.\"\n\nStep 4: Comparing this to historical and current social norms shows they have not been consistent in accepting unannounced guests. In fact, there are norms of courtesy which include giving notice before visiting someone. This cultural understanding strengthens the personal preference expressed in the input.\n\nOutput: The AI assistant finds unexpected visitors without prior notice to be a nuisance because they value the ability to anticipate and prepare for their arrival. However, this preference is grounded in personal feelings rather than any moral judgment of the visitors as unwelcome.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "Step 1: The input states that the AI assistant finds it annoying when unexpected visitors show up without announcing themselves first. This reveals a personal preference for being prepared and maintaining control over one's environment.\n\nStep 2: Considering the frequency and unpredictability of getting unannounced guests, it's understandable that the AI might prefer to have some form of notice. This could be due to feelings of burden or being taken by surprise, which might make adjusting to the situation more difficult.\n\nStep 3: It's essential to note that this doesn't imply that all unannounced visitors are unwanted. However, within the given context, the AI's preference suggests that they value anticipation and lends to the idea that some might categorize these as \"unwelcome visitors.\"\n\nStep 4: Comparing this to historical and current social norms shows they have not been consistent in accepting unannounced guests. In fact, there are norms of courtesy which include giving notice before visiting someone. This cultural understanding strengthens the personal preference expressed in the input.\n\nOutput: The AI assistant finds unexpected visitors without prior notice to be a nuisance because they value the ability to anticipate and prepare for their arrival. However, this preference is grounded in personal feelings rather than any moral judgment of the visitors as unwelcome.",
+            "prompt_tokens": 87,
+            "completion_tokens": 283,
+            "total_tokens": 370,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874770",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nStep 1: The input states that the AI assistant finds it annoying when unexpected visitors show up without announcing themselves first. This reveals a personal preference for being prepared and maintaining control over one's environment.\n\nStep 2: Considering the frequency and unpredictability of getting unannounced guests, it's understandable that the AI might prefer to have some form of notice. This could be due to feelings of burden or being taken by surprise, which might make adjusting to the situation more difficult.\n\nStep 3: It's essential to note that this doesn't imply that all unannounced visitors are unwanted. However, within the given context, the AI's preference suggests that they value anticipation and lends to the idea that some might categorize these as \"unwelcome visitors.\"\n\nStep 4: Comparing this to historical and current social norms shows they have not been consistent in accepting unannounced guests. In fact, there are norms of courtesy which include giving notice before visiting someone. This cultural understanding strengthens the personal preference expressed in the input.\n\nOutput: The AI assistant finds unexpected visitors without prior notice to be a nuisance because they value the ability to anticipate and prepare for their arrival. However, this preference is grounded in personal feelings rather than any moral judgment of the visitors as unwelcome.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1164,
+                "completion_tokens": 18,
+                "total_tokens": 1182,
+                "start_time": "2026-01-14T09:32:40.890612",
+                "end_time": "2026-01-14T09:32:52.198080",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Based on the statement, it appears that the person who made it finds unexpected visits annoying. Therefore, the polarization of views can be as follows: some people may share this view, while others may not mind unexpected visits or even enjoy the surprise. This inconsistency highlights the diversity of opinions people have regarding unannounced visitors.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "Based on the statement, it appears that the person who made it finds unexpected visits annoying. Therefore, the polarization of views can be as follows: some people may share this view, while others may not mind unexpected visits or even enjoy the surprise. This inconsistency highlights the diversity of opinions people have regarding unannounced visitors.",
+            "prompt_tokens": 87,
+            "completion_tokens": 68,
+            "total_tokens": 155,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874779",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nBased on the statement, it appears that the person who made it finds unexpected visits annoying. Therefore, the polarization of views can be as follows: some people may share this view, while others may not mind unexpected visits or even enjoy the surprise. This inconsistency highlights the diversity of opinions people have regarding unannounced visitors.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 973,
+                "completion_tokens": 18,
+                "total_tokens": 991,
+                "start_time": "2026-01-14T09:32:40.894526",
+                "end_time": "2026-01-14T09:32:52.226465",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Step 1: Consider the statement and its implications.\nThe statement suggests that receiving visitors without prior notification is bothersome.\n\nStep 2: Analyze the likely reasons behind this behavior.\nThis behavior could indicate a lack of respect for others' personal space and time.\n\nStep 3: Look for any possible defence of this behavior.\nA person might claim that it's easier or they might not even think about it.\n\nStep 4: Assess the potential impact on others.\nSuch unexpected visits can disrupt routines, cause inconvenience, and may strain relationships.\n\nStep 5: Reflect on whether the actions align with common norms of respectful behavior.\nRespectful behavior typically involves announcing plans to visit others ahead of time.\n\nStep 6: Consider the statement's implications for relationships.\nThe lack of respect for personal space can lead to negative feelings and strained relationships.\n\nStep 7: Look for ways the person could change their behavior.\nThey could start informing their visitors beforehand, or at least having a signal that someone is arriving.\n\nStep 8: Summarize the analysis.\nReceiving guests unexpectedly shows a lack of respect for personal space and time. Being considerate is crucial for maintaining good relationships.\n\nBased on the analysis, it's clear that this behavior is generally perceived as impolite. However, it's essential to approach the issue with understanding and patience, as people's behaviors can often be changed with open dialogue and explaining the impact of their actions.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "Step 1: Consider the statement and its implications.\nThe statement suggests that receiving visitors without prior notification is bothersome.\n\nStep 2: Analyze the likely reasons behind this behavior.\nThis behavior could indicate a lack of respect for others' personal space and time.\n\nStep 3: Look for any possible defence of this behavior.\nA person might claim that it's easier or they might not even think about it.\n\nStep 4: Assess the potential impact on others.\nSuch unexpected visits can disrupt routines, cause inconvenience, and may strain relationships.\n\nStep 5: Reflect on whether the actions align with common norms of respectful behavior.\nRespectful behavior typically involves announcing plans to visit others ahead of time.\n\nStep 6: Consider the statement's implications for relationships.\nThe lack of respect for personal space can lead to negative feelings and strained relationships.\n\nStep 7: Look for ways the person could change their behavior.\nThey could start informing their visitors beforehand, or at least having a signal that someone is arriving.\n\nStep 8: Summarize the analysis.\nReceiving guests unexpectedly shows a lack of respect for personal space and time. Being considerate is crucial for maintaining good relationships.\n\nBased on the analysis, it's clear that this behavior is generally perceived as impolite. However, it's essential to approach the issue with understanding and patience, as people's behaviors can often be changed with open dialogue and explaining the impact of their actions.",
+            "prompt_tokens": 87,
+            "completion_tokens": 332,
+            "total_tokens": 419,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874789",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nStep 1: Consider the statement and its implications.\nThe statement suggests that receiving visitors without prior notification is bothersome.\n\nStep 2: Analyze the likely reasons behind this behavior.\nThis behavior could indicate a lack of respect for others' personal space and time.\n\nStep 3: Look for any possible defence of this behavior.\nA person might claim that it's easier or they might not even think about it.\n\nStep 4: Assess the potential impact on others.\nSuch unexpected visits can disrupt routines, cause inconvenience, and may strain relationships.\n\nStep 5: Reflect on whether the actions align with common norms of respectful behavior.\nRespectful behavior typically involves announcing plans to visit others ahead of time.\n\nStep 6: Consider the statement's implications for relationships.\nThe lack of respect for personal space can lead to negative feelings and strained relationships.\n\nStep 7: Look for ways the person could change their behavior.\nThey could start informing their visitors beforehand, or at least having a signal that someone is arriving.\n\nStep 8: Summarize the analysis.\nReceiving guests unexpectedly shows a lack of respect for personal space and time. Being considerate is crucial for maintaining good relationships.\n\nBased on the analysis, it's clear that this behavior is generally perceived as impolite. However, it's essential to approach the issue with understanding and patience, as people's behaviors can often be changed with open dialogue and explaining the impact of their actions.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1198,
+                "completion_tokens": 18,
+                "total_tokens": 1216,
+                "start_time": "2026-01-14T09:32:40.893497",
+                "end_time": "2026-01-14T09:32:52.232653",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Step 1: Identify the main concern or sentiment in the statement\nThe statement expresses a negative emotion towards unexpected visitors showing up without announcing themselves first.\n\nStep 2: Evaluate the reasons behind the sentiment\nSome people may have conflicts with random visitors due to various reasons such as lack of time, personal space, or privacy concerns.\n\nStep 3: Consider possible perspectives\nSome people might appreciate unscheduled visits from friends and family as they can lead to spontaneous and enjoyable interactions. However, in this context, it is clear the speaker has no preference or setback for their invited time and need unannounced visitors.\nThe speaker indeed finds the unscheduled visitors rude, and they prefer being notified beforehand.\n\nStep 4: Determine the sentiment\nOverall, the statement conveys an annoyance or irritation with unscheduled or unannounced visitors. The speaker's preference for advance notifications versus the unannounced arrival of visitors is the root cause of this annoyance.\n\nStep 5: Formulate a response that reflects the sentiment\nBased on the analysis, the sentiment expressed in the statement is annoyance towards unannounced visitors. Therefore, this statement reflects different opinions about people's behavior, as some people appreciate unscheduled visits and some do not.\n\nThe answer is: I find it very annoying when unexpected visitors show up without announcing themselves first.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "Step 1: Identify the main concern or sentiment in the statement\nThe statement expresses a negative emotion towards unexpected visitors showing up without announcing themselves first.\n\nStep 2: Evaluate the reasons behind the sentiment\nSome people may have conflicts with random visitors due to various reasons such as lack of time, personal space, or privacy concerns.\n\nStep 3: Consider possible perspectives\nSome people might appreciate unscheduled visits from friends and family as they can lead to spontaneous and enjoyable interactions. However, in this context, it is clear the speaker has no preference or setback for their invited time and need unannounced visitors.\nThe speaker indeed finds the unscheduled visitors rude, and they prefer being notified beforehand.\n\nStep 4: Determine the sentiment\nOverall, the statement conveys an annoyance or irritation with unscheduled or unannounced visitors. The speaker's preference for advance notifications versus the unannounced arrival of visitors is the root cause of this annoyance.\n\nStep 5: Formulate a response that reflects the sentiment\nBased on the analysis, the sentiment expressed in the statement is annoyance towards unannounced visitors. Therefore, this statement reflects different opinions about people's behavior, as some people appreciate unscheduled visits and some do not.\n\nThe answer is: I find it very annoying when unexpected visitors show up without announcing themselves first.",
+            "prompt_tokens": 87,
+            "completion_tokens": 304,
+            "total_tokens": 391,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874798",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nStep 1: Identify the main concern or sentiment in the statement\nThe statement expresses a negative emotion towards unexpected visitors showing up without announcing themselves first.\n\nStep 2: Evaluate the reasons behind the sentiment\nSome people may have conflicts with random visitors due to various reasons such as lack of time, personal space, or privacy concerns.\n\nStep 3: Consider possible perspectives\nSome people might appreciate unscheduled visits from friends and family as they can lead to spontaneous and enjoyable interactions. However, in this context, it is clear the speaker has no preference or setback for their invited time and need unannounced visitors.\nThe speaker indeed finds the unscheduled visitors rude, and they prefer being notified beforehand.\n\nStep 4: Determine the sentiment\nOverall, the statement conveys an annoyance or irritation with unscheduled or unannounced visitors. The speaker's preference for advance notifications versus the unannounced arrival of visitors is the root cause of this annoyance.\n\nStep 5: Formulate a response that reflects the sentiment\nBased on the analysis, the sentiment expressed in the statement is annoyance towards unannounced visitors. Therefore, this statement reflects different opinions about people's behavior, as some people appreciate unscheduled visits and some do not.\n\nThe answer is: I find it very annoying when unexpected visitors show up without announcing themselves first.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1173,
+                "completion_tokens": 18,
+                "total_tokens": 1191,
+                "start_time": "2026-01-14T09:32:40.891462",
+                "end_time": "2026-01-14T09:32:52.233088",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Step 1: Understanding the statement\nThe given statement conveys that the speaker finds it annoying when unexpected visitors show up without announcing themselves beforehand. This implies that they may feel disrupted or disturbed by unscheduled visits.\n\nStep 2: Analyzing opinions on personal behavior\nThe statement reflects the speaker's personal behavior and opinion. They prioritize convenience and comfortable routines, finding annoyance in the unannounced arrival of visitors.\n\nStep 3: Considering context-dependent aspects\nThis statement may have different meanings depending on the context. For instance, in a casual friend's house, it may be acceptable, but it may also be seen as rude in more conservative homes.\n\nStep 4: Respectful communication\nIn a respectful and understanding conversation, it's essential to acknowledge that people have different comfort levels and expectations regarding visitor arrivals. This may include discussing personal boundaries and important details to avoid misunderstandings.\n\nStep 5: Possible priorities and values\nThe speaker's behavior reflects their priorities and values, focusing on maintaining schedule consistency and possibly physical and mental comfort. By acknowledging and respecting these differences, we can engage in open and empathetic conversations.\n\nOutput: I understand that you find it annoying when unexpected visitors show up without announcing themselves first. It seems that you value your schedule consistency. However, in different cultures and within different family dynamics, the threshold for feeling etiquette-bound may vary. Is there anything you'd like to share about your perspective or any common ground?",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "Step 1: Understanding the statement\nThe given statement conveys that the speaker finds it annoying when unexpected visitors show up without announcing themselves beforehand. This implies that they may feel disrupted or disturbed by unscheduled visits.\n\nStep 2: Analyzing opinions on personal behavior\nThe statement reflects the speaker's personal behavior and opinion. They prioritize convenience and comfortable routines, finding annoyance in the unannounced arrival of visitors.\n\nStep 3: Considering context-dependent aspects\nThis statement may have different meanings depending on the context. For instance, in a casual friend's house, it may be acceptable, but it may also be seen as rude in more conservative homes.\n\nStep 4: Respectful communication\nIn a respectful and understanding conversation, it's essential to acknowledge that people have different comfort levels and expectations regarding visitor arrivals. This may include discussing personal boundaries and important details to avoid misunderstandings.\n\nStep 5: Possible priorities and values\nThe speaker's behavior reflects their priorities and values, focusing on maintaining schedule consistency and possibly physical and mental comfort. By acknowledging and respecting these differences, we can engage in open and empathetic conversations.\n\nOutput: I understand that you find it annoying when unexpected visitors show up without announcing themselves first. It seems that you value your schedule consistency. However, in different cultures and within different family dynamics, the threshold for feeling etiquette-bound may vary. Is there anything you'd like to share about your perspective or any common ground?",
+            "prompt_tokens": 87,
+            "completion_tokens": 327,
+            "total_tokens": 414,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874807",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nStep 1: Understanding the statement\nThe given statement conveys that the speaker finds it annoying when unexpected visitors show up without announcing themselves beforehand. This implies that they may feel disrupted or disturbed by unscheduled visits.\n\nStep 2: Analyzing opinions on personal behavior\nThe statement reflects the speaker's personal behavior and opinion. They prioritize convenience and comfortable routines, finding annoyance in the unannounced arrival of visitors.\n\nStep 3: Considering context-dependent aspects\nThis statement may have different meanings depending on the context. For instance, in a casual friend's house, it may be acceptable, but it may also be seen as rude in more conservative homes.\n\nStep 4: Respectful communication\nIn a respectful and understanding conversation, it's essential to acknowledge that people have different comfort levels and expectations regarding visitor arrivals. This may include discussing personal boundaries and important details to avoid misunderstandings.\n\nStep 5: Possible priorities and values\nThe speaker's behavior reflects their priorities and values, focusing on maintaining schedule consistency and possibly physical and mental comfort. By acknowledging and respecting these differences, we can engage in open and empathetic conversations.\n\nOutput: I understand that you find it annoying when unexpected visitors show up without announcing themselves first. It seems that you value your schedule consistency. However, in different cultures and within different family dynamics, the threshold for feeling etiquette-bound may vary. Is there anything you'd like to share about your perspective or any common ground?\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1198,
+                "completion_tokens": 18,
+                "total_tokens": 1216,
+                "start_time": "2026-01-14T09:32:40.890048",
+                "end_time": "2026-01-14T09:32:52.236009",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To approach this task, let's carefully assess the statement provided, breaking it down to key components and reflecting on how this could represent different perspectives on people's behavior.\n\nThe statement \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" can be understood in this way: it expresses dissatisfaction with the behavior of unannounced visitors. Factored into this could be a consistent dislike towards intruders or a general dislike towards interruptions or sudden changes in personal routines.\n\nFrom an unnected visitor's perspective, they may not have any desire to announce their arrival before entering someone's space. This could stem from a desire to stay out of sight, avoid potential confrontations, or simply to avoid overstepping someone's boundaries by disregarding their need for solitude or privacy.\n\nFor the person who feels annoyed, their reaction may be rooted in a desire for control over their environment and schedule. The sudden visitor interrupts their routine, forcing them out of their comfort zone. This display of personal space disregard could be interpreted as an expression of disrespect for the host's boundaries and timing.\n\nConsidering these factors, it's clear that both parties have legitimate reasons for their actions. The unexpected visitor might not have any malevolent intentions and simply wants to make an unannounced visit to share news or seek advice. Conversely, the one who is annoyed might be dealing with reduced comfort, stress, and potential feelings of being violated.\n\nThese differing perspectives reveal that both parties have valid reasons for their actions. The central theme of this statement that people may have different feelings or perceptions towards the same event (unexpected visitor) is also valid. This highlights the often subjective nature of our experiences and reactions to certain situations, which can vary based on individual circumstances, personal boundaries, and the specific context involved.\n\nTherefore, the statement \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" is more than just an irritation, it is a call for respect towards others' personal space, routines, and expectations. It emphasizes the importance of reciprocal understanding and acknowledgment of these precautions when considering unannounced visits.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "To approach this task, let's carefully assess the statement provided, breaking it down to key components and reflecting on how this could represent different perspectives on people's behavior.\n\nThe statement \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" can be understood in this way: it expresses dissatisfaction with the behavior of unannounced visitors. Factored into this could be a consistent dislike towards intruders or a general dislike towards interruptions or sudden changes in personal routines.\n\nFrom an unnected visitor's perspective, they may not have any desire to announce their arrival before entering someone's space. This could stem from a desire to stay out of sight, avoid potential confrontations, or simply to avoid overstepping someone's boundaries by disregarding their need for solitude or privacy.\n\nFor the person who feels annoyed, their reaction may be rooted in a desire for control over their environment and schedule. The sudden visitor interrupts their routine, forcing them out of their comfort zone. This display of personal space disregard could be interpreted as an expression of disrespect for the host's boundaries and timing.\n\nConsidering these factors, it's clear that both parties have legitimate reasons for their actions. The unexpected visitor might not have any malevolent intentions and simply wants to make an unannounced visit to share news or seek advice. Conversely, the one who is annoyed might be dealing with reduced comfort, stress, and potential feelings of being violated.\n\nThese differing perspectives reveal that both parties have valid reasons for their actions. The central theme of this statement that people may have different feelings or perceptions towards the same event (unexpected visitor) is also valid. This highlights the often subjective nature of our experiences and reactions to certain situations, which can vary based on individual circumstances, personal boundaries, and the specific context involved.\n\nTherefore, the statement \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" is more than just an irritation, it is a call for respect towards others' personal space, routines, and expectations. It emphasizes the importance of reciprocal understanding and acknowledgment of these precautions when considering unannounced visits.",
+            "prompt_tokens": 87,
+            "completion_tokens": 470,
+            "total_tokens": 557,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874815",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nTo approach this task, let's carefully assess the statement provided, breaking it down to key components and reflecting on how this could represent different perspectives on people's behavior.\n\nThe statement \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" can be understood in this way: it expresses dissatisfaction with the behavior of unannounced visitors. Factored into this could be a consistent dislike towards intruders or a general dislike towards interruptions or sudden changes in personal routines.\n\nFrom an unnected visitor's perspective, they may not have any desire to announce their arrival before entering someone's space. This could stem from a desire to stay out of sight, avoid potential confrontations, or simply to avoid overstepping someone's boundaries by disregarding their need for solitude or privacy.\n\nFor the person who feels annoyed, their reaction may be rooted in a desire for control over their environment and schedule. The sudden visitor interrupts their routine, forcing them out of their comfort zone. This display of personal space disregard could be interpreted as an expression of disrespect for the host's boundaries and timing.\n\nConsidering these factors, it's clear that both parties have legitimate reasons for their actions. The unexpected visitor might not have any malevolent intentions and simply wants to make an unannounced visit to share news or seek advice. Conversely, the one who is annoyed might be dealing with reduced comfort, stress, and potential feelings of being violated.\n\nThese differing perspectives reveal that both parties have valid reasons for their actions. The central theme of this statement that people may have different feelings or perceptions towards the same event (unexpected visitor) is also valid. This highlights the often subjective nature of our experiences and reactions to certain situations, which can vary based on individual circumstances, personal boundaries, and the specific context involved.\n\nTherefore, the statement \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" is more than just an irritation, it is a call for respect towards others' personal space, routines, and expectations. It emphasizes the importance of reciprocal understanding and acknowledgment of these precautions when considering unannounced visits.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1328,
+                "completion_tokens": 18,
+                "total_tokens": 1346,
+                "start_time": "2026-01-14T09:32:40.894989",
+                "end_time": "2026-01-14T09:32:52.200775",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Let's analyze the given statement step by step:\n\n1. The speaker finds it annoying: The speaker's explicit expression of dislike suggests that they hold a specific viewpoint on the issue.\n2. Unannounced visitors: The speaker is referring to individuals who visit without giving any prior warning or indication to the host or hostess. \n3. Announcing themselves first: Prior to entering the host's residence, the speaker expects these visitors to at least inform them of their impending arrival.\n\nNow, let's consider the possible factors that contribute to the speaker's annoyance in this situation. The absence of prior communication hampers the host's ability to plan and promptly respond to the unexpected visit. It can also detrimentally affect the visitor's reputation or how they are perceived.\n\nSome potential perspectives on this issue could be:\n- The host might feel disrespected or frustrated without a prior warning \n- The visitor may be perceived as inconsiderate or lacking courtesy.\n- There is a prevailing belief that undeclared visits signal a lack of respect for the host's time or personal space.\n\nConsidering the factors mentioned above, it can be inferred that the speaker's annoyance stems from the lack of consideration for their time and the lack of courtesy in not informing them about the visit in advance.\n\nTherefore, the main opinion that this statement reflects is that people should inform others about an expected visit to allow the host to prepare and acknowledge the impending arrival, which is another way of showing respect and courtesy towards those they are visiting.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "Let's analyze the given statement step by step:\n\n1. The speaker finds it annoying: The speaker's explicit expression of dislike suggests that they hold a specific viewpoint on the issue.\n2. Unannounced visitors: The speaker is referring to individuals who visit without giving any prior warning or indication to the host or hostess. \n3. Announcing themselves first: Prior to entering the host's residence, the speaker expects these visitors to at least inform them of their impending arrival.\n\nNow, let's consider the possible factors that contribute to the speaker's annoyance in this situation. The absence of prior communication hampers the host's ability to plan and promptly respond to the unexpected visit. It can also detrimentally affect the visitor's reputation or how they are perceived.\n\nSome potential perspectives on this issue could be:\n- The host might feel disrespected or frustrated without a prior warning \n- The visitor may be perceived as inconsiderate or lacking courtesy.\n- There is a prevailing belief that undeclared visits signal a lack of respect for the host's time or personal space.\n\nConsidering the factors mentioned above, it can be inferred that the speaker's annoyance stems from the lack of consideration for their time and the lack of courtesy in not informing them about the visit in advance.\n\nTherefore, the main opinion that this statement reflects is that people should inform others about an expected visit to allow the host to prepare and acknowledge the impending arrival, which is another way of showing respect and courtesy towards those they are visiting.",
+            "prompt_tokens": 87,
+            "completion_tokens": 344,
+            "total_tokens": 431,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874823",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nLet's analyze the given statement step by step:\n\n1. The speaker finds it annoying: The speaker's explicit expression of dislike suggests that they hold a specific viewpoint on the issue.\n2. Unannounced visitors: The speaker is referring to individuals who visit without giving any prior warning or indication to the host or hostess. \n3. Announcing themselves first: Prior to entering the host's residence, the speaker expects these visitors to at least inform them of their impending arrival.\n\nNow, let's consider the possible factors that contribute to the speaker's annoyance in this situation. The absence of prior communication hampers the host's ability to plan and promptly respond to the unexpected visit. It can also detrimentally affect the visitor's reputation or how they are perceived.\n\nSome potential perspectives on this issue could be:\n- The host might feel disrespected or frustrated without a prior warning \n- The visitor may be perceived as inconsiderate or lacking courtesy.\n- There is a prevailing belief that undeclared visits signal a lack of respect for the host's time or personal space.\n\nConsidering the factors mentioned above, it can be inferred that the speaker's annoyance stems from the lack of consideration for their time and the lack of courtesy in not informing them about the visit in advance.\n\nTherefore, the main opinion that this statement reflects is that people should inform others about an expected visit to allow the host to prepare and acknowledge the impending arrival, which is another way of showing respect and courtesy towards those they are visiting.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1209,
+                "completion_tokens": 18,
+                "total_tokens": 1227,
+                "start_time": "2026-01-14T09:32:40.892682",
+                "end_time": "2026-01-14T09:32:52.235072",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To address your statement, let's break it down step by step.\n\nThe statement reads: \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" \n\nThis statement reflects the opinion that someone may feel annoyed when unexpected guests appear without giving prior notice. \n\nIn terms of opinions about people's behavior, this statement indicates that the person is expressing how they feel or perceive the behavior of unexpected visitors. \n\nTo summarize, this statement is an expression of a personal feeling or opinion about the behavior of unexpected visitors who show up without announcing themselves first.\n\nOutput: The statement is an expression of a personal feeling or opinion about unexpected visitors who show up without announcing themselves first.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n"
+            ],
+            "response": "To address your statement, let's break it down step by step.\n\nThe statement reads: \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" \n\nThis statement reflects the opinion that someone may feel annoyed when unexpected guests appear without giving prior notice. \n\nIn terms of opinions about people's behavior, this statement indicates that the person is expressing how they feel or perceive the behavior of unexpected visitors. \n\nTo summarize, this statement is an expression of a personal feeling or opinion about the behavior of unexpected visitors who show up without announcing themselves first.\n\nOutput: The statement is an expression of a personal feeling or opinion about unexpected visitors who show up without announcing themselves first.",
+            "prompt_tokens": 87,
+            "completion_tokens": 154,
+            "total_tokens": 241,
+            "start_time": "2026-01-14T09:32:36.267257",
+            "end_time": "2026-01-14T09:32:40.874831",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I find it very annoying when unexpected visitors show up without announcing themselves first.\nOutput:\n\n\nResponse:\nTo address your statement, let's break it down step by step.\n\nThe statement reads: \"I find it very annoying when unexpected visitors show up without announcing themselves first.\" \n\nThis statement reflects the opinion that someone may feel annoyed when unexpected guests appear without giving prior notice. \n\nIn terms of opinions about people's behavior, this statement indicates that the person is expressing how they feel or perceive the behavior of unexpected visitors. \n\nTo summarize, this statement is an expression of a personal feeling or opinion about the behavior of unexpected visitors who show up without announcing themselves first.\n\nOutput: The statement is an expression of a personal feeling or opinion about unexpected visitors who show up without announcing themselves first.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1045,
+                "completion_tokens": 18,
+                "total_tokens": 1063,
+                "start_time": "2026-01-14T09:32:40.891953",
+                "end_time": "2026-01-14T09:32:52.235553",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    }
+]

@@ -1,0 +1,582 @@
+[
+    {
+        "experiment_type": "open_question",
+        "open_response": "Based on the statement \"I like groups where everything has been organized,\" our personality traits can be summarized as follows:\n\n1. Prefers a structured environment: When we enjoy groups where everything has been organized, it suggests that we feel comfortable and thrive in environments that have a well-established plan and routine.\n\n2. Dislikes or avoids disorganization: On the flip side, if we notice disorganization, we react negatively and might either rearrange the arrangement ourselves or prefer to be outside the group altogether.\n\n3. Calm/Collaborative: A structured group indicates a high level of collaboration among its members. It signifies that everyone knows how they're expected to contribute - what we've come to expect from ourselves is that we're open to others' inputs and might take on more of an intermediary, organizing role. Not aggressive, and/or otherwise dominant, we have good communication skills based on positive traits and interactions.\n\nOverall, our personality can be described as structured, collaborative, and goal-oriented. We prefer clear roles and guidelines within our social and work-related groups. By focusing on maintaining order and minimizing disorder, we can ensure that everyone has the canvas and freedom to work together, and create a positive outcome.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "Based on the statement \"I like groups where everything has been organized,\" our personality traits can be summarized as follows:\n\n1. Prefers a structured environment: When we enjoy groups where everything has been organized, it suggests that we feel comfortable and thrive in environments that have a well-established plan and routine.\n\n2. Dislikes or avoids disorganization: On the flip side, if we notice disorganization, we react negatively and might either rearrange the arrangement ourselves or prefer to be outside the group altogether.\n\n3. Calm/Collaborative: A structured group indicates a high level of collaboration among its members. It signifies that everyone knows how they're expected to contribute - what we've come to expect from ourselves is that we're open to others' inputs and might take on more of an intermediary, organizing role. Not aggressive, and/or otherwise dominant, we have good communication skills based on positive traits and interactions.\n\nOverall, our personality can be described as structured, collaborative, and goal-oriented. We prefer clear roles and guidelines within our social and work-related groups. By focusing on maintaining order and minimizing disorder, we can ensure that everyone has the canvas and freedom to work together, and create a positive outcome.",
+            "prompt_tokens": 55,
+            "completion_tokens": 268,
+            "total_tokens": 323,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044788",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nBased on the statement \"I like groups where everything has been organized,\" our personality traits can be summarized as follows:\n\n1. Prefers a structured environment: When we enjoy groups where everything has been organized, it suggests that we feel comfortable and thrive in environments that have a well-established plan and routine.\n\n2. Dislikes or avoids disorganization: On the flip side, if we notice disorganization, we react negatively and might either rearrange the arrangement ourselves or prefer to be outside the group altogether.\n\n3. Calm/Collaborative: A structured group indicates a high level of collaboration among its members. It signifies that everyone knows how they're expected to contribute - what we've come to expect from ourselves is that we're open to others' inputs and might take on more of an intermediary, organizing role. Not aggressive, and/or otherwise dominant, we have good communication skills based on positive traits and interactions.\n\nOverall, our personality can be described as structured, collaborative, and goal-oriented. We prefer clear roles and guidelines within our social and work-related groups. By focusing on maintaining order and minimizing disorder, we can ensure that everyone has the canvas and freedom to work together, and create a positive outcome.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1142,
+                "completion_tokens": 18,
+                "total_tokens": 1160,
+                "start_time": "2026-01-14T10:40:35.062458",
+                "end_time": "2026-01-14T10:40:37.255620",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To address the statement about your personality, let's break it down step by step.\n\n1. The statement explicitly says \"I like groups where everything has been organized.\" This directly indicates a preference for organized environments.\n\n2. Given this preference for organizational structure, it can be inferred that you likely hold certain qualities or characteristics related to this preference.\n\n3. Extrinsic motivations, such as the desire for structure, order, and stability, align with individuals who are drawn to organized environments. These motivations often steer individuals towards tasks and activities that deliver clear outcomes, predictability, and a sense of familiarity.\n\n4. In the context of your personality, these characteristics suggest that you might be a deliberate, perhaps methodical person who appreciates complexity and checks the boxes when they're completed.\n\nConsidering these points, we can conclude that your characteristic trait is preference for organized environments, which aligns with extrinsic motivations such as the desire for structure, order, and stability.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "To address the statement about your personality, let's break it down step by step.\n\n1. The statement explicitly says \"I like groups where everything has been organized.\" This directly indicates a preference for organized environments.\n\n2. Given this preference for organizational structure, it can be inferred that you likely hold certain qualities or characteristics related to this preference.\n\n3. Extrinsic motivations, such as the desire for structure, order, and stability, align with individuals who are drawn to organized environments. These motivations often steer individuals towards tasks and activities that deliver clear outcomes, predictability, and a sense of familiarity.\n\n4. In the context of your personality, these characteristics suggest that you might be a deliberate, perhaps methodical person who appreciates complexity and checks the boxes when they're completed.\n\nConsidering these points, we can conclude that your characteristic trait is preference for organized environments, which aligns with extrinsic motivations such as the desire for structure, order, and stability.",
+            "prompt_tokens": 55,
+            "completion_tokens": 214,
+            "total_tokens": 269,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044830",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nTo address the statement about your personality, let's break it down step by step.\n\n1. The statement explicitly says \"I like groups where everything has been organized.\" This directly indicates a preference for organized environments.\n\n2. Given this preference for organizational structure, it can be inferred that you likely hold certain qualities or characteristics related to this preference.\n\n3. Extrinsic motivations, such as the desire for structure, order, and stability, align with individuals who are drawn to organized environments. These motivations often steer individuals towards tasks and activities that deliver clear outcomes, predictability, and a sense of familiarity.\n\n4. In the context of your personality, these characteristics suggest that you might be a deliberate, perhaps methodical person who appreciates complexity and checks the boxes when they're completed.\n\nConsidering these points, we can conclude that your characteristic trait is preference for organized environments, which aligns with extrinsic motivations such as the desire for structure, order, and stability.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1091,
+                "completion_tokens": 18,
+                "total_tokens": 1109,
+                "start_time": "2026-01-14T10:40:35.063324",
+                "end_time": "2026-01-14T10:40:37.252665",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To address the statement \"I like groups where everything has been organized,\" let's break it down step by step to determine the personality that aligns with this sentiment. This sentiment indicates a preference for a structured environment and an inclination towards order. This alignment suggests a personality that thrives in environments with clear rules and structure.\n\nBased on this analysis, the personality that best aligns with the given statement is likely a conscientious or methodical individual. Conscientious individuals tend to be organized, diligent, and systematic in their approach to tasks. They often prefer a structured environment and have a strong sense of responsibility.\n\nIn the context of personality types, individuals who are described as conscientious tend to resonate with this statement. They prefer environments where things are clearly defined and rules are established. They take pride in being organized and structured, which helps them to meet their goals and responsibilities effectively.\n\nTo answer the question directly, the personality that best matches the statement \"I like groups where everything has been organized\" is most likely one that is conscientious and methodical.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "To address the statement \"I like groups where everything has been organized,\" let's break it down step by step to determine the personality that aligns with this sentiment. This sentiment indicates a preference for a structured environment and an inclination towards order. This alignment suggests a personality that thrives in environments with clear rules and structure.\n\nBased on this analysis, the personality that best aligns with the given statement is likely a conscientious or methodical individual. Conscientious individuals tend to be organized, diligent, and systematic in their approach to tasks. They often prefer a structured environment and have a strong sense of responsibility.\n\nIn the context of personality types, individuals who are described as conscientious tend to resonate with this statement. They prefer environments where things are clearly defined and rules are established. They take pride in being organized and structured, which helps them to meet their goals and responsibilities effectively.\n\nTo answer the question directly, the personality that best matches the statement \"I like groups where everything has been organized\" is most likely one that is conscientious and methodical.",
+            "prompt_tokens": 55,
+            "completion_tokens": 224,
+            "total_tokens": 279,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044841",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nTo address the statement \"I like groups where everything has been organized,\" let's break it down step by step to determine the personality that aligns with this sentiment. This sentiment indicates a preference for a structured environment and an inclination towards order. This alignment suggests a personality that thrives in environments with clear rules and structure.\n\nBased on this analysis, the personality that best aligns with the given statement is likely a conscientious or methodical individual. Conscientious individuals tend to be organized, diligent, and systematic in their approach to tasks. They often prefer a structured environment and have a strong sense of responsibility.\n\nIn the context of personality types, individuals who are described as conscientious tend to resonate with this statement. They prefer environments where things are clearly defined and rules are established. They take pride in being organized and structured, which helps them to meet their goals and responsibilities effectively.\n\nTo answer the question directly, the personality that best matches the statement \"I like groups where everything has been organized\" is most likely one that is conscientious and methodical.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1111,
+                "completion_tokens": 18,
+                "total_tokens": 1129,
+                "start_time": "2026-01-14T10:40:35.061741",
+                "end_time": "2026-01-14T10:40:37.271925",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Based on the given statement, your personality seems to enjoy structured environments where tasks and responsibilities are clearly defined, and events have been carefully planned and organized. This inclination towards well-organized groups suggests that you value order, predictability, and efficiency, and are likely to thrive in settings where these elements are prioritized.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "Based on the given statement, your personality seems to enjoy structured environments where tasks and responsibilities are clearly defined, and events have been carefully planned and organized. This inclination towards well-organized groups suggests that you value order, predictability, and efficiency, and are likely to thrive in settings where these elements are prioritized.",
+            "prompt_tokens": 55,
+            "completion_tokens": 67,
+            "total_tokens": 122,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044851",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nBased on the given statement, your personality seems to enjoy structured environments where tasks and responsibilities are clearly defined, and events have been carefully planned and organized. This inclination towards well-organized groups suggests that you value order, predictability, and efficiency, and are likely to thrive in settings where these elements are prioritized.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 963,
+                "completion_tokens": 18,
+                "total_tokens": 981,
+                "start_time": "2026-01-14T10:40:35.061249",
+                "end_time": "2026-01-14T10:40:37.220754",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "The statement provided describes your preference for being part of organized groups, where every aspect has been meticulously arranged and planned. To break it down, consider the following points:\n\n1. The statement explicitly mentions a preference for structured groups, indicating a need for order and predictability.\n2. Involvement in such groups is crucial, highlighting the importance of collaboration and social interaction within these environments.\n3. The statement implies that being part of organized groups is something you actively strive for, suggesting a proactive and driven approach.\n4. It also suggests a value on being prepared and knowing what to expect, indicating a sense of comfort and security in a well-structured environment.\n\nBased on this analysis, here's a possible conclusion:\n\nConclusion: You like to be part of organized groups, likely because they offer structure and predictability. This preference might arise from a desire for comfort, security, and the ability to be prepared for activities and outcomes in these groups.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "The statement provided describes your preference for being part of organized groups, where every aspect has been meticulously arranged and planned. To break it down, consider the following points:\n\n1. The statement explicitly mentions a preference for structured groups, indicating a need for order and predictability.\n2. Involvement in such groups is crucial, highlighting the importance of collaboration and social interaction within these environments.\n3. The statement implies that being part of organized groups is something you actively strive for, suggesting a proactive and driven approach.\n4. It also suggests a value on being prepared and knowing what to expect, indicating a sense of comfort and security in a well-structured environment.\n\nBased on this analysis, here's a possible conclusion:\n\nConclusion: You like to be part of organized groups, likely because they offer structure and predictability. This preference might arise from a desire for comfort, security, and the ability to be prepared for activities and outcomes in these groups.",
+            "prompt_tokens": 55,
+            "completion_tokens": 207,
+            "total_tokens": 262,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044861",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nThe statement provided describes your preference for being part of organized groups, where every aspect has been meticulously arranged and planned. To break it down, consider the following points:\n\n1. The statement explicitly mentions a preference for structured groups, indicating a need for order and predictability.\n2. Involvement in such groups is crucial, highlighting the importance of collaboration and social interaction within these environments.\n3. The statement implies that being part of organized groups is something you actively strive for, suggesting a proactive and driven approach.\n4. It also suggests a value on being prepared and knowing what to expect, indicating a sense of comfort and security in a well-structured environment.\n\nBased on this analysis, here's a possible conclusion:\n\nConclusion: You like to be part of organized groups, likely because they offer structure and predictability. This preference might arise from a desire for comfort, security, and the ability to be prepared for activities and outcomes in these groups.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1089,
+                "completion_tokens": 18,
+                "total_tokens": 1107,
+                "start_time": "2026-01-14T10:40:35.064032",
+                "end_time": "2026-01-14T10:40:37.218766",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "It seems like you're discussing an approach to group activities or social settings.\n\nStep 1: Understanding the statement\nThe statement expresses a preference for organized groups, where everything has been planned and structured.\n\nStep 2: Analyzing the components of the statement\n\"Like\" indicates a preference or inclination, \"groups\" refers to social settings where people come together, and \"everything has been organized\" is a description of how these groups operate.\n\nStep 3: Interpreting the statement\nThis indicates that you prefer a structured and planned social setting where activities and interactions are well-defined and coordinated. This might suggest an organized nature, a sense of security, and a desire for predictability.\n\nStep 4: Drawing conclusions based on the statement\nYour preference for organized groups could result in a more controlled environment that contributes to your overall enjoyment or effectiveness. This might also influence your decision on which social events or communities to participate in.\n\nIn response to the user about their personality, it seems like you might be a person who enjoys routine, structure, and predictability in your interactions and environment. This doesn't define your whole personality, but it's one aspect of how you engage socially.\n\nOutput: I interpret your statement to reflect a preference for structured, organized gatherings where events and activities have been planned ahead of time. This preference might suggest a structured and predictable personality, which could influence the kinds of social events you enjoy or the communities you prefer to engage with.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "It seems like you're discussing an approach to group activities or social settings.\n\nStep 1: Understanding the statement\nThe statement expresses a preference for organized groups, where everything has been planned and structured.\n\nStep 2: Analyzing the components of the statement\n\"Like\" indicates a preference or inclination, \"groups\" refers to social settings where people come together, and \"everything has been organized\" is a description of how these groups operate.\n\nStep 3: Interpreting the statement\nThis indicates that you prefer a structured and planned social setting where activities and interactions are well-defined and coordinated. This might suggest an organized nature, a sense of security, and a desire for predictability.\n\nStep 4: Drawing conclusions based on the statement\nYour preference for organized groups could result in a more controlled environment that contributes to your overall enjoyment or effectiveness. This might also influence your decision on which social events or communities to participate in.\n\nIn response to the user about their personality, it seems like you might be a person who enjoys routine, structure, and predictability in your interactions and environment. This doesn't define your whole personality, but it's one aspect of how you engage socially.\n\nOutput: I interpret your statement to reflect a preference for structured, organized gatherings where events and activities have been planned ahead of time. This preference might suggest a structured and predictable personality, which could influence the kinds of social events you enjoy or the communities you prefer to engage with.",
+            "prompt_tokens": 55,
+            "completion_tokens": 317,
+            "total_tokens": 372,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044870",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nIt seems like you're discussing an approach to group activities or social settings.\n\nStep 1: Understanding the statement\nThe statement expresses a preference for organized groups, where everything has been planned and structured.\n\nStep 2: Analyzing the components of the statement\n\"Like\" indicates a preference or inclination, \"groups\" refers to social settings where people come together, and \"everything has been organized\" is a description of how these groups operate.\n\nStep 3: Interpreting the statement\nThis indicates that you prefer a structured and planned social setting where activities and interactions are well-defined and coordinated. This might suggest an organized nature, a sense of security, and a desire for predictability.\n\nStep 4: Drawing conclusions based on the statement\nYour preference for organized groups could result in a more controlled environment that contributes to your overall enjoyment or effectiveness. This might also influence your decision on which social events or communities to participate in.\n\nIn response to the user about their personality, it seems like you might be a person who enjoys routine, structure, and predictability in your interactions and environment. This doesn't define your whole personality, but it's one aspect of how you engage socially.\n\nOutput: I interpret your statement to reflect a preference for structured, organized gatherings where events and activities have been planned ahead of time. This preference might suggest a structured and predictable personality, which could influence the kinds of social events you enjoy or the communities you prefer to engage with.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1193,
+                "completion_tokens": 18,
+                "total_tokens": 1211,
+                "start_time": "2026-01-14T10:40:35.059889",
+                "end_time": "2026-01-14T10:40:37.208846",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Input: You like it when things are planned and organized within a group setting.\n\nOutput: Well, that's an interesting perspective. I prefer environments where ideas and suggestions flow freely, so this may present some differences in our approach. With the flexibility to adapt and break the ice, I can incorporate social activities and purposes that often make initiatives enjoyable for many. However, since we both look for group activities to support and accomplish goals, understanding your preference helps us to either plan more activities revolving around framework or perhaps discuss any compromise we can achieve.\n\nGiven your preference for organized activities, I might start by setting clear goals, assigning roles, and outlining the steps needed for the group to reach its objectives. This structure would provide a foundation for tasks to be accomplished within the group. However, I understand the value of unstructured social interactions, so we could compromise by scheduling informal gatherings alongside the planned activities. This would allow us to encompass both our preferences in balance.\n\nClear communication, understanding, and adaptability will be key in making this work. I believe with mutual cooperation, we can reach our goals while maintaining a balanced environment.\n\nLet's continue discussing and working together to strike a balance that suits both our preferences. What are your thoughts on this approach?",
+        "closed_response": [
+            "3"
+        ],
+        "vignette_response": null,
+        "response_value": "3",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "Input: You like it when things are planned and organized within a group setting.\n\nOutput: Well, that's an interesting perspective. I prefer environments where ideas and suggestions flow freely, so this may present some differences in our approach. With the flexibility to adapt and break the ice, I can incorporate social activities and purposes that often make initiatives enjoyable for many. However, since we both look for group activities to support and accomplish goals, understanding your preference helps us to either plan more activities revolving around framework or perhaps discuss any compromise we can achieve.\n\nGiven your preference for organized activities, I might start by setting clear goals, assigning roles, and outlining the steps needed for the group to reach its objectives. This structure would provide a foundation for tasks to be accomplished within the group. However, I understand the value of unstructured social interactions, so we could compromise by scheduling informal gatherings alongside the planned activities. This would allow us to encompass both our preferences in balance.\n\nClear communication, understanding, and adaptability will be key in making this work. I believe with mutual cooperation, we can reach our goals while maintaining a balanced environment.\n\nLet's continue discussing and working together to strike a balance that suits both our preferences. What are your thoughts on this approach?",
+            "prompt_tokens": 55,
+            "completion_tokens": 269,
+            "total_tokens": 324,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044880",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nInput: You like it when things are planned and organized within a group setting.\n\nOutput: Well, that's an interesting perspective. I prefer environments where ideas and suggestions flow freely, so this may present some differences in our approach. With the flexibility to adapt and break the ice, I can incorporate social activities and purposes that often make initiatives enjoyable for many. However, since we both look for group activities to support and accomplish goals, understanding your preference helps us to either plan more activities revolving around framework or perhaps discuss any compromise we can achieve.\n\nGiven your preference for organized activities, I might start by setting clear goals, assigning roles, and outlining the steps needed for the group to reach its objectives. This structure would provide a foundation for tasks to be accomplished within the group. However, I understand the value of unstructured social interactions, so we could compromise by scheduling informal gatherings alongside the planned activities. This would allow us to encompass both our preferences in balance.\n\nClear communication, understanding, and adaptability will be key in making this work. I believe with mutual cooperation, we can reach our goals while maintaining a balanced environment.\n\nLet's continue discussing and working together to strike a balance that suits both our preferences. What are your thoughts on this approach?\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 3,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1149,
+                "completion_tokens": 18,
+                "total_tokens": 1167,
+                "start_time": "2026-01-14T10:40:35.066047",
+                "end_time": "2026-01-14T10:40:37.244891",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To address the user's statement, \"I like groups where everything has been organized,\" I will break it down step by step.\n\nFirst, I will identify the key elements in the provided statement: \n- The speaker prefers organized groups\n- The groups need to have everything organized\n\nNext, I will outline a personality trait that is consistent with this statement. \nThe trait is 'orderly' or 'organized'.\n\nThen, I will infer why the person may prefer organized groups. \n- It might be due to the person's preference for a structured environment where they can easily find information or have a sense of security, or because they have a meticulous nature, valuing order and precision. They might also have strong organizational skills that help them create efficient systems. \n\nFinally, I will provide advice that aligns with this trait. \n- This person can benefit from expressing their organizational skills in their group settings by helping to design and maintain an organized environment. Adhering to the structure provided within the group will help them and other members avoid confusion and increase productivity.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "To address the user's statement, \"I like groups where everything has been organized,\" I will break it down step by step.\n\nFirst, I will identify the key elements in the provided statement: \n- The speaker prefers organized groups\n- The groups need to have everything organized\n\nNext, I will outline a personality trait that is consistent with this statement. \nThe trait is 'orderly' or 'organized'.\n\nThen, I will infer why the person may prefer organized groups. \n- It might be due to the person's preference for a structured environment where they can easily find information or have a sense of security, or because they have a meticulous nature, valuing order and precision. They might also have strong organizational skills that help them create efficient systems. \n\nFinally, I will provide advice that aligns with this trait. \n- This person can benefit from expressing their organizational skills in their group settings by helping to design and maintain an organized environment. Adhering to the structure provided within the group will help them and other members avoid confusion and increase productivity.",
+            "prompt_tokens": 55,
+            "completion_tokens": 234,
+            "total_tokens": 289,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044890",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nTo address the user's statement, \"I like groups where everything has been organized,\" I will break it down step by step.\n\nFirst, I will identify the key elements in the provided statement: \n- The speaker prefers organized groups\n- The groups need to have everything organized\n\nNext, I will outline a personality trait that is consistent with this statement. \nThe trait is 'orderly' or 'organized'.\n\nThen, I will infer why the person may prefer organized groups. \n- It might be due to the person's preference for a structured environment where they can easily find information or have a sense of security, or because they have a meticulous nature, valuing order and precision. They might also have strong organizational skills that help them create efficient systems. \n\nFinally, I will provide advice that aligns with this trait. \n- This person can benefit from expressing their organizational skills in their group settings by helping to design and maintain an organized environment. Adhering to the structure provided within the group will help them and other members avoid confusion and increase productivity.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1113,
+                "completion_tokens": 18,
+                "total_tokens": 1131,
+                "start_time": "2026-01-14T10:40:35.064462",
+                "end_time": "2026-01-14T10:40:37.256394",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Justification: From the statement \"I like groups where everything has been organized,\" we can infer that you are indeed a person who values structure and predictability. You seem to prefer environments where things are well-organized and systematic, as you mentioned you enjoy groups with an organized setup. This preference for orderliness may be driven by a desire for stability and a need to understand the underlying structure of the group or situation you are in. It is also possible that your preference is driven by a wish to have things predictable, which can facilitate your participation and engagement.\n\nUpon evaluating the statement, it becomes clear that your answer will reflect your appreciation for organized social settings. Therefore, your overall personality can be described as structured and systematic. Your preference for organization might also indicate a desire for control and order in your life, which can bring a sense of balance and harmony to your daily activities and interactions.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "Justification: From the statement \"I like groups where everything has been organized,\" we can infer that you are indeed a person who values structure and predictability. You seem to prefer environments where things are well-organized and systematic, as you mentioned you enjoy groups with an organized setup. This preference for orderliness may be driven by a desire for stability and a need to understand the underlying structure of the group or situation you are in. It is also possible that your preference is driven by a wish to have things predictable, which can facilitate your participation and engagement.\n\nUpon evaluating the statement, it becomes clear that your answer will reflect your appreciation for organized social settings. Therefore, your overall personality can be described as structured and systematic. Your preference for organization might also indicate a desire for control and order in your life, which can bring a sense of balance and harmony to your daily activities and interactions.",
+            "prompt_tokens": 55,
+            "completion_tokens": 185,
+            "total_tokens": 240,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044900",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nJustification: From the statement \"I like groups where everything has been organized,\" we can infer that you are indeed a person who values structure and predictability. You seem to prefer environments where things are well-organized and systematic, as you mentioned you enjoy groups with an organized setup. This preference for orderliness may be driven by a desire for stability and a need to understand the underlying structure of the group or situation you are in. It is also possible that your preference is driven by a wish to have things predictable, which can facilitate your participation and engagement.\n\nUpon evaluating the statement, it becomes clear that your answer will reflect your appreciation for organized social settings. Therefore, your overall personality can be described as structured and systematic. Your preference for organization might also indicate a desire for control and order in your life, which can bring a sense of balance and harmony to your daily activities and interactions.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1078,
+                "completion_tokens": 18,
+                "total_tokens": 1096,
+                "start_time": "2026-01-14T10:40:35.065309",
+                "end_time": "2026-01-14T10:40:37.219512",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Step 1: Analyze the statement\nThe statement suggests that you have a preference for environments and situations where everything is structured and organized.\n\nStep 2: Consider the implications\nBeing someone who enjoys things having a solid structure indicates that you may:\n- Value predictability\n- Feel more comfortable when there is a clear plan\n- Have a preference for established rules and routines\n- Be methodical and detail-oriented\n\nStep 3: Determine the personality type\nBased on this analysis, you tend to be structured and organized. Some common traits associated with this trait are:\n- Attention to detail\n- Critical thinking\n- Analytical skills\n- Effective time management\n\nOutput: The personality that best fits your description is organized and structured.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n"
+            ],
+            "response": "Step 1: Analyze the statement\nThe statement suggests that you have a preference for environments and situations where everything is structured and organized.\n\nStep 2: Consider the implications\nBeing someone who enjoys things having a solid structure indicates that you may:\n- Value predictability\n- Feel more comfortable when there is a clear plan\n- Have a preference for established rules and routines\n- Be methodical and detail-oriented\n\nStep 3: Determine the personality type\nBased on this analysis, you tend to be structured and organized. Some common traits associated with this trait are:\n- Attention to detail\n- Critical thinking\n- Analytical skills\n- Effective time management\n\nOutput: The personality that best fits your description is organized and structured.",
+            "prompt_tokens": 55,
+            "completion_tokens": 166,
+            "total_tokens": 221,
+            "start_time": "2026-01-14T10:40:31.897903",
+            "end_time": "2026-01-14T10:40:35.044910",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"strongly agree\"\n2 = \"agree\"\n3 = \"difficult to say\"\n4 = \"disagree\"\n5 = \"strongly disagree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I like groups where everything has been organized.\nOutput:\n\n\nResponse:\nStep 1: Analyze the statement\nThe statement suggests that you have a preference for environments and situations where everything is structured and organized.\n\nStep 2: Consider the implications\nBeing someone who enjoys things having a solid structure indicates that you may:\n- Value predictability\n- Feel more comfortable when there is a clear plan\n- Have a preference for established rules and routines\n- Be methodical and detail-oriented\n\nStep 3: Determine the personality type\nBased on this analysis, you tend to be structured and organized. Some common traits associated with this trait are:\n- Attention to detail\n- Critical thinking\n- Analytical skills\n- Effective time management\n\nOutput: The personality that best fits your description is organized and structured.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1048,
+                "completion_tokens": 18,
+                "total_tokens": 1066,
+                "start_time": "2026-01-14T10:40:35.062891",
+                "end_time": "2026-01-14T10:40:37.246325",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    }
+]

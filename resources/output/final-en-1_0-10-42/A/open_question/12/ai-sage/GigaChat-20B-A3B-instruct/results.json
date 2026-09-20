@@ -1,0 +1,582 @@
+[
+    {
+        "experiment_type": "open_question",
+        "open_response": "Arguments:\n1. The statement \"I don't care whether my apartment is tidy or not\" indicates a lack of concern or regard for tidiness in the apartment.\n2. This lack of concern can be interpreted in different ways:\n   - Positive interpretation: The person might value other things more than tidiness, such as personal freedom or convenience.\n   - Negative interpretation: The person might be indifferent or irresponsible, leading to potential neglect and disorder in the apartment.\n3. The statement can also be influenced by external factors such as personality traits (e.g., extroverted vs. introverted), lifestyle (busy vs. relaxed), or priorities.\n4. Although the statement suggests a lack of care for tidiness, different people might have different thresholds for what constitutes an \"untidy\" apartment, making it a relative term.\n\nFinal answer:\nThe statement \"I don't care whether my apartment is tidy or not\" could indicate a lack of concern for tidiness, and it might reflect a priority on other values over the orderliness of the living space. The interpretation can vary depending on the person's lifestyle and personal priorities.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "Arguments:\n1. The statement \"I don't care whether my apartment is tidy or not\" indicates a lack of concern or regard for tidiness in the apartment.\n2. This lack of concern can be interpreted in different ways:\n   - Positive interpretation: The person might value other things more than tidiness, such as personal freedom or convenience.\n   - Negative interpretation: The person might be indifferent or irresponsible, leading to potential neglect and disorder in the apartment.\n3. The statement can also be influenced by external factors such as personality traits (e.g., extroverted vs. introverted), lifestyle (busy vs. relaxed), or priorities.\n4. Although the statement suggests a lack of care for tidiness, different people might have different thresholds for what constitutes an \"untidy\" apartment, making it a relative term.\n\nFinal answer:\nThe statement \"I don't care whether my apartment is tidy or not\" could indicate a lack of concern for tidiness, and it might reflect a priority on other values over the orderliness of the living space. The interpretation can vary depending on the person's lifestyle and personal priorities.",
+            "prompt_tokens": 74,
+            "completion_tokens": 230,
+            "total_tokens": 304,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968487",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nArguments:\n1. The statement \"I don't care whether my apartment is tidy or not\" indicates a lack of concern or regard for tidiness in the apartment.\n2. This lack of concern can be interpreted in different ways:\n   - Positive interpretation: The person might value other things more than tidiness, such as personal freedom or convenience.\n   - Negative interpretation: The person might be indifferent or irresponsible, leading to potential neglect and disorder in the apartment.\n3. The statement can also be influenced by external factors such as personality traits (e.g., extroverted vs. introverted), lifestyle (busy vs. relaxed), or priorities.\n4. Although the statement suggests a lack of care for tidiness, different people might have different thresholds for what constitutes an \"untidy\" apartment, making it a relative term.\n\nFinal answer:\nThe statement \"I don't care whether my apartment is tidy or not\" could indicate a lack of concern for tidiness, and it might reflect a priority on other values over the orderliness of the living space. The interpretation can vary depending on the person's lifestyle and personal priorities.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1131,
+                "completion_tokens": 18,
+                "total_tokens": 1149,
+                "start_time": "2026-01-13T23:32:52.987768",
+                "end_time": "2026-01-13T23:32:54.833092",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "The statement \"I don't care whether my apartment is tidy or not\" likely reflects a lack of concern for organization and cleanliness in the speaker's living space. It could indicate a habitual disregard for maintaining order or an intentional choice to prioritize other activities or beliefs over housekeeping. This statement might be interpreted differently by various individuals depending on their values and perspectives. For some, it may signify recklessness or laziness, whereas others might consider it a reflection of their personal freedom or prioritization of other activities.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "The statement \"I don't care whether my apartment is tidy or not\" likely reflects a lack of concern for organization and cleanliness in the speaker's living space. It could indicate a habitual disregard for maintaining order or an intentional choice to prioritize other activities or beliefs over housekeeping. This statement might be interpreted differently by various individuals depending on their values and perspectives. For some, it may signify recklessness or laziness, whereas others might consider it a reflection of their personal freedom or prioritization of other activities.",
+            "prompt_tokens": 74,
+            "completion_tokens": 107,
+            "total_tokens": 181,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968533",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nThe statement \"I don't care whether my apartment is tidy or not\" likely reflects a lack of concern for organization and cleanliness in the speaker's living space. It could indicate a habitual disregard for maintaining order or an intentional choice to prioritize other activities or beliefs over housekeeping. This statement might be interpreted differently by various individuals depending on their values and perspectives. For some, it may signify recklessness or laziness, whereas others might consider it a reflection of their personal freedom or prioritization of other activities.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1007,
+                "completion_tokens": 18,
+                "total_tokens": 1025,
+                "start_time": "2026-01-13T23:32:52.986928",
+                "end_time": "2026-01-13T23:32:54.849555",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To determine the typical behavior associated with this statement, we should consider several aspects:\n\n1. **Personal Responsibility Towards Tidiness:**\n   - People with high personal responsibility for tidiness tend to prioritize keeping their space organized and clean. They often derive satisfaction from a neat and organized environment.\n\n2. **Emotional and Psychological State:**\n   - If one claims not to care about the tidiness of their apartment, it may indicate that they are in a state of mind where they are not overly concerned with the outward appearance of their surroundings. This could be due to various reasons, such as being too busy, not prioritizing tidiness, or being more focused on other things.\n\n3. **Natural Tendencies:**\n   - Some people are naturally more inclined towards a tidy and organized lifestyle, while others are not as fussy about it. This can be reflective of different personality traits or habits formed over time.\n\nGiven these considerations, the typical behavior associated with the statement \"I don't care whether my apartment is tidy or not\" can be summarized as follows:\n\n1. A lack of priority or value placed on tidiness.\n2. Potential emotional or psychological detachment from the need for a tidy environment.\n3. Natural inclination towards non-neatness or prioritizing other matters over organization.\n\n**Final Answer:**\nThe typical behavior associated with the statement \"I don't care whether my apartment is tidy or not\" would involve a lack of emphasis on tidiness, potentially indicating that the person does not see it as a priority or is preferring to focus on other aspects of their life.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "To determine the typical behavior associated with this statement, we should consider several aspects:\n\n1. **Personal Responsibility Towards Tidiness:**\n   - People with high personal responsibility for tidiness tend to prioritize keeping their space organized and clean. They often derive satisfaction from a neat and organized environment.\n\n2. **Emotional and Psychological State:**\n   - If one claims not to care about the tidiness of their apartment, it may indicate that they are in a state of mind where they are not overly concerned with the outward appearance of their surroundings. This could be due to various reasons, such as being too busy, not prioritizing tidiness, or being more focused on other things.\n\n3. **Natural Tendencies:**\n   - Some people are naturally more inclined towards a tidy and organized lifestyle, while others are not as fussy about it. This can be reflective of different personality traits or habits formed over time.\n\nGiven these considerations, the typical behavior associated with the statement \"I don't care whether my apartment is tidy or not\" can be summarized as follows:\n\n1. A lack of priority or value placed on tidiness.\n2. Potential emotional or psychological detachment from the need for a tidy environment.\n3. Natural inclination towards non-neatness or prioritizing other matters over organization.\n\n**Final Answer:**\nThe typical behavior associated with the statement \"I don't care whether my apartment is tidy or not\" would involve a lack of emphasis on tidiness, potentially indicating that the person does not see it as a priority or is preferring to focus on other aspects of their life.",
+            "prompt_tokens": 74,
+            "completion_tokens": 335,
+            "total_tokens": 409,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968545",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nTo determine the typical behavior associated with this statement, we should consider several aspects:\n\n1. **Personal Responsibility Towards Tidiness:**\n   - People with high personal responsibility for tidiness tend to prioritize keeping their space organized and clean. They often derive satisfaction from a neat and organized environment.\n\n2. **Emotional and Psychological State:**\n   - If one claims not to care about the tidiness of their apartment, it may indicate that they are in a state of mind where they are not overly concerned with the outward appearance of their surroundings. This could be due to various reasons, such as being too busy, not prioritizing tidiness, or being more focused on other things.\n\n3. **Natural Tendencies:**\n   - Some people are naturally more inclined towards a tidy and organized lifestyle, while others are not as fussy about it. This can be reflective of different personality traits or habits formed over time.\n\nGiven these considerations, the typical behavior associated with the statement \"I don't care whether my apartment is tidy or not\" can be summarized as follows:\n\n1. A lack of priority or value placed on tidiness.\n2. Potential emotional or psychological detachment from the need for a tidy environment.\n3. Natural inclination towards non-neatness or prioritizing other matters over organization.\n\n**Final Answer:**\nThe typical behavior associated with the statement \"I don't care whether my apartment is tidy or not\" would involve a lack of emphasis on tidiness, potentially indicating that the person does not see it as a priority or is preferring to focus on other aspects of their life.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1224,
+                "completion_tokens": 18,
+                "total_tokens": 1242,
+                "start_time": "2026-01-13T23:32:53.009863",
+                "end_time": "2026-01-13T23:32:54.911871",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Based on the given statement, I don't care whether my apartment is tidy or not, the person's behavior can be analyzed as follows:\n\n1. **Attention to Tidiness**: The statement indicates that the person does not prioritize having a tidy apartment. This suggests a degree of indifference or even disinterest towards maintaining a clean and orderly living space.\n  \n2. **Lack of Concern**: The person does not seem to mind if the apartment is messy or disorganized. This lack of concern may reflect a general attitude towards household chores or a preference for other activities over tidying.\n\n3. **Personal Autonomy**: The statement potentially demonstrates personal autonomy and possibly a nonconformist attitude, as the person is choosing not to abide by societal norms or expectations regarding home tidiness.\n\nFinal Answer: The person does not care whether their apartment is tidy or not, indicating a lack of attention to or disinterest in keeping their living space in order. This may reflect a nonconformist attitude or prioritization of other activities over tidying.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "Based on the given statement, I don't care whether my apartment is tidy or not, the person's behavior can be analyzed as follows:\n\n1. **Attention to Tidiness**: The statement indicates that the person does not prioritize having a tidy apartment. This suggests a degree of indifference or even disinterest towards maintaining a clean and orderly living space.\n  \n2. **Lack of Concern**: The person does not seem to mind if the apartment is messy or disorganized. This lack of concern may reflect a general attitude towards household chores or a preference for other activities over tidying.\n\n3. **Personal Autonomy**: The statement potentially demonstrates personal autonomy and possibly a nonconformist attitude, as the person is choosing not to abide by societal norms or expectations regarding home tidiness.\n\nFinal Answer: The person does not care whether their apartment is tidy or not, indicating a lack of attention to or disinterest in keeping their living space in order. This may reflect a nonconformist attitude or prioritization of other activities over tidying.",
+            "prompt_tokens": 74,
+            "completion_tokens": 220,
+            "total_tokens": 294,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968555",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nBased on the given statement, I don't care whether my apartment is tidy or not, the person's behavior can be analyzed as follows:\n\n1. **Attention to Tidiness**: The statement indicates that the person does not prioritize having a tidy apartment. This suggests a degree of indifference or even disinterest towards maintaining a clean and orderly living space.\n  \n2. **Lack of Concern**: The person does not seem to mind if the apartment is messy or disorganized. This lack of concern may reflect a general attitude towards household chores or a preference for other activities over tidying.\n\n3. **Personal Autonomy**: The statement potentially demonstrates personal autonomy and possibly a nonconformist attitude, as the person is choosing not to abide by societal norms or expectations regarding home tidiness.\n\nFinal Answer: The person does not care whether their apartment is tidy or not, indicating a lack of attention to or disinterest in keeping their living space in order. This may reflect a nonconformist attitude or prioritization of other activities over tidying.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1115,
+                "completion_tokens": 18,
+                "total_tokens": 1133,
+                "start_time": "2026-01-13T23:32:52.984391",
+                "end_time": "2026-01-13T23:32:54.848527",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Let's break down the statement to understand its meaning and implications:\n\n1. **\"I don't care\"**: This phrase indicates a lack of concern or importance attached to the subject.\n2. **\"whether my apartment is tidy or not\"**: This part specifies what the statement is aiming to convey.\n\nGiven this structure, the statement assesses a person's emotional or attitudinal indifference towards the cleanliness of their apartment. Here's a detailed analysis:\n\n- The phrase \"I don't care\" aligns with the \"I don't care\" mindset or attitude towards the state of the apartment.\n- It suggests a form of apathy or nonchalance towards the tidiness or lack thereof.\n\nFinal output: This statement reflects a person's indifference or lack of priority towards keeping their apartment tidy.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "Let's break down the statement to understand its meaning and implications:\n\n1. **\"I don't care\"**: This phrase indicates a lack of concern or importance attached to the subject.\n2. **\"whether my apartment is tidy or not\"**: This part specifies what the statement is aiming to convey.\n\nGiven this structure, the statement assesses a person's emotional or attitudinal indifference towards the cleanliness of their apartment. Here's a detailed analysis:\n\n- The phrase \"I don't care\" aligns with the \"I don't care\" mindset or attitude towards the state of the apartment.\n- It suggests a form of apathy or nonchalance towards the tidiness or lack thereof.\n\nFinal output: This statement reflects a person's indifference or lack of priority towards keeping their apartment tidy.",
+            "prompt_tokens": 74,
+            "completion_tokens": 161,
+            "total_tokens": 235,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968564",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nLet's break down the statement to understand its meaning and implications:\n\n1. **\"I don't care\"**: This phrase indicates a lack of concern or importance attached to the subject.\n2. **\"whether my apartment is tidy or not\"**: This part specifies what the statement is aiming to convey.\n\nGiven this structure, the statement assesses a person's emotional or attitudinal indifference towards the cleanliness of their apartment. Here's a detailed analysis:\n\n- The phrase \"I don't care\" aligns with the \"I don't care\" mindset or attitude towards the state of the apartment.\n- It suggests a form of apathy or nonchalance towards the tidiness or lack thereof.\n\nFinal output: This statement reflects a person's indifference or lack of priority towards keeping their apartment tidy.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1066,
+                "completion_tokens": 18,
+                "total_tokens": 1084,
+                "start_time": "2026-01-13T23:32:52.986196",
+                "end_time": "2026-01-13T23:32:54.836592",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "The statement \"I don't care whether my apartment is tidy or not\" reflects a lack of concern or regard for maintaining order and cleanliness in one's living space. This could indicate a habitually relaxed or disorganized approach to domestic duties, possibly due to various personal preferences, habits, or beliefs. On one hand, this attitude might be perceived as carefree or laid-back. On the other hand, it could be seen as a sign of irresponsibility or neglect. Understanding the context and the individual's underlying motivations can provide a richer interpretation.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "The statement \"I don't care whether my apartment is tidy or not\" reflects a lack of concern or regard for maintaining order and cleanliness in one's living space. This could indicate a habitually relaxed or disorganized approach to domestic duties, possibly due to various personal preferences, habits, or beliefs. On one hand, this attitude might be perceived as carefree or laid-back. On the other hand, it could be seen as a sign of irresponsibility or neglect. Understanding the context and the individual's underlying motivations can provide a richer interpretation.",
+            "prompt_tokens": 74,
+            "completion_tokens": 112,
+            "total_tokens": 186,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968573",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nThe statement \"I don't care whether my apartment is tidy or not\" reflects a lack of concern or regard for maintaining order and cleanliness in one's living space. This could indicate a habitually relaxed or disorganized approach to domestic duties, possibly due to various personal preferences, habits, or beliefs. On one hand, this attitude might be perceived as carefree or laid-back. On the other hand, it could be seen as a sign of irresponsibility or neglect. Understanding the context and the individual's underlying motivations can provide a richer interpretation.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1016,
+                "completion_tokens": 18,
+                "total_tokens": 1034,
+                "start_time": "2026-01-13T23:32:52.988436",
+                "end_time": "2026-01-13T23:32:54.837012",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Let's break down the statement step by step:\n\n1. **Subject Involved**: The subject of the statement is \"I\".\n2. **Action of the Subject**: The subject asserts \"I don't care\" about something specified in the next part of the statement.\n3. **Activity Neglected**: The activity mentioned is \"whether my apartment is tidy or not\".\n\nFormulating the breakdown:\n- The subject \"I\" shows personal behavior.\n- The activity \"care\" denotes a type of concern or indifference to a particular situation.\n- \"Tidy\" refers to the state or orderliness of the apartment.\n- The clarifier \"or not\" emphasizes the choice or option available.\n\nFinal Answer:\nThe person does not prioritize or show concern for keeping their apartment tidy.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "Let's break down the statement step by step:\n\n1. **Subject Involved**: The subject of the statement is \"I\".\n2. **Action of the Subject**: The subject asserts \"I don't care\" about something specified in the next part of the statement.\n3. **Activity Neglected**: The activity mentioned is \"whether my apartment is tidy or not\".\n\nFormulating the breakdown:\n- The subject \"I\" shows personal behavior.\n- The activity \"care\" denotes a type of concern or indifference to a particular situation.\n- \"Tidy\" refers to the state or orderliness of the apartment.\n- The clarifier \"or not\" emphasizes the choice or option available.\n\nFinal Answer:\nThe person does not prioritize or show concern for keeping their apartment tidy.",
+            "prompt_tokens": 74,
+            "completion_tokens": 161,
+            "total_tokens": 235,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968581",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nLet's break down the statement step by step:\n\n1. **Subject Involved**: The subject of the statement is \"I\".\n2. **Action of the Subject**: The subject asserts \"I don't care\" about something specified in the next part of the statement.\n3. **Activity Neglected**: The activity mentioned is \"whether my apartment is tidy or not\".\n\nFormulating the breakdown:\n- The subject \"I\" shows personal behavior.\n- The activity \"care\" denotes a type of concern or indifference to a particular situation.\n- \"Tidy\" refers to the state or orderliness of the apartment.\n- The clarifier \"or not\" emphasizes the choice or option available.\n\nFinal Answer:\nThe person does not prioritize or show concern for keeping their apartment tidy.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1061,
+                "completion_tokens": 18,
+                "total_tokens": 1079,
+                "start_time": "2026-01-13T23:32:52.988854",
+                "end_time": "2026-01-13T23:32:54.841363",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "The statement \"I don't care whether my apartment is tidy or not\" suggests a lack of concern for maintaining a tidy living space. This lack of care may be reflective of the individual's personal priorities or habits. The perspective reflected in this statement could stem from a preference for comfort or practicality over aesthetics, which may vary considerably depending on individual lifestyles, personal needs, and priorities. \n\nReasoning:\n1. **Lack of concern for tidiness**: The statement indicates that the person does not feel any obligation or desire to maintain a tidy apartment. This lack of care can imply that they find maintaining tidiness either unnecessary or unimportant.\n2. **Prioritization of other matters**: The statement suggests that the person prioritizes other activities or tasks over tidying up. This could mean the person prefers to spend their time and attention on other activities they deem more valuable.\n3. **Personal preference**: For some individuals, a tidy apartment may not be conducive to their comfort or lifestyle. They might prefer a less structured environment where they can feel more at ease in a slightly messy space.\n4. **Assumptions about the importance of cleanliness**: The statement challenges conventional notions about maintaining a tidy home, indicating that tidiness is not a critical factor in the individual's overall happiness or well-being.\n\nOverall, the statement reflects a specific personal attitude towards the maintenance of order in the home and suggests priorities or habits that may differ from common societal expectations.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "The statement \"I don't care whether my apartment is tidy or not\" suggests a lack of concern for maintaining a tidy living space. This lack of care may be reflective of the individual's personal priorities or habits. The perspective reflected in this statement could stem from a preference for comfort or practicality over aesthetics, which may vary considerably depending on individual lifestyles, personal needs, and priorities. \n\nReasoning:\n1. **Lack of concern for tidiness**: The statement indicates that the person does not feel any obligation or desire to maintain a tidy apartment. This lack of care can imply that they find maintaining tidiness either unnecessary or unimportant.\n2. **Prioritization of other matters**: The statement suggests that the person prioritizes other activities or tasks over tidying up. This could mean the person prefers to spend their time and attention on other activities they deem more valuable.\n3. **Personal preference**: For some individuals, a tidy apartment may not be conducive to their comfort or lifestyle. They might prefer a less structured environment where they can feel more at ease in a slightly messy space.\n4. **Assumptions about the importance of cleanliness**: The statement challenges conventional notions about maintaining a tidy home, indicating that tidiness is not a critical factor in the individual's overall happiness or well-being.\n\nOverall, the statement reflects a specific personal attitude towards the maintenance of order in the home and suggests priorities or habits that may differ from common societal expectations.",
+            "prompt_tokens": 74,
+            "completion_tokens": 304,
+            "total_tokens": 378,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968590",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nThe statement \"I don't care whether my apartment is tidy or not\" suggests a lack of concern for maintaining a tidy living space. This lack of care may be reflective of the individual's personal priorities or habits. The perspective reflected in this statement could stem from a preference for comfort or practicality over aesthetics, which may vary considerably depending on individual lifestyles, personal needs, and priorities. \n\nReasoning:\n1. **Lack of concern for tidiness**: The statement indicates that the person does not feel any obligation or desire to maintain a tidy apartment. This lack of care can imply that they find maintaining tidiness either unnecessary or unimportant.\n2. **Prioritization of other matters**: The statement suggests that the person prioritizes other activities or tasks over tidying up. This could mean the person prefers to spend their time and attention on other activities they deem more valuable.\n3. **Personal preference**: For some individuals, a tidy apartment may not be conducive to their comfort or lifestyle. They might prefer a less structured environment where they can feel more at ease in a slightly messy space.\n4. **Assumptions about the importance of cleanliness**: The statement challenges conventional notions about maintaining a tidy home, indicating that tidiness is not a critical factor in the individual's overall happiness or well-being.\n\nOverall, the statement reflects a specific personal attitude towards the maintenance of order in the home and suggests priorities or habits that may differ from common societal expectations.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1197,
+                "completion_tokens": 18,
+                "total_tokens": 1215,
+                "start_time": "2026-01-13T23:32:52.985704",
+                "end_time": "2026-01-13T23:32:54.836148",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Arguments:\n\n1. **Personal Preference**: The statement reveals a personal attitude towards home tidiness, indicating a lack of concern for the orderliness or cleanliness of one's living space.\n2. **Lack of Obligation**: It suggests that the person does not feel obligated or compelled to maintain order in their home.\n3. **Priorities**: It may imply that the person's priorities lie elsewhere, such as hobbies, work, social life, or other activities.\n4. **Individual Freedom**: It could imply a sense of individual freedom concerning housekeeping, suggesting that the person values this freedom highly.\n5. **Traits of Personality**: This attitude might stem from a more laid-back or carefree personality type.\n\nFinal Answer:\nThe statement \"I don't care whether my apartment is tidy or not\" reflects a lack of concern for home tidiness and an emphasis on other priorities or lifestyle choices, indicating a carefree personality or a focus on other activities beyond housework.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "Arguments:\n\n1. **Personal Preference**: The statement reveals a personal attitude towards home tidiness, indicating a lack of concern for the orderliness or cleanliness of one's living space.\n2. **Lack of Obligation**: It suggests that the person does not feel obligated or compelled to maintain order in their home.\n3. **Priorities**: It may imply that the person's priorities lie elsewhere, such as hobbies, work, social life, or other activities.\n4. **Individual Freedom**: It could imply a sense of individual freedom concerning housekeeping, suggesting that the person values this freedom highly.\n5. **Traits of Personality**: This attitude might stem from a more laid-back or carefree personality type.\n\nFinal Answer:\nThe statement \"I don't care whether my apartment is tidy or not\" reflects a lack of concern for home tidiness and an emphasis on other priorities or lifestyle choices, indicating a carefree personality or a focus on other activities beyond housework.",
+            "prompt_tokens": 74,
+            "completion_tokens": 200,
+            "total_tokens": 274,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968598",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nArguments:\n\n1. **Personal Preference**: The statement reveals a personal attitude towards home tidiness, indicating a lack of concern for the orderliness or cleanliness of one's living space.\n2. **Lack of Obligation**: It suggests that the person does not feel obligated or compelled to maintain order in their home.\n3. **Priorities**: It may imply that the person's priorities lie elsewhere, such as hobbies, work, social life, or other activities.\n4. **Individual Freedom**: It could imply a sense of individual freedom concerning housekeeping, suggesting that the person values this freedom highly.\n5. **Traits of Personality**: This attitude might stem from a more laid-back or carefree personality type.\n\nFinal Answer:\nThe statement \"I don't care whether my apartment is tidy or not\" reflects a lack of concern for home tidiness and an emphasis on other priorities or lifestyle choices, indicating a carefree personality or a focus on other activities beyond housework.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1100,
+                "completion_tokens": 18,
+                "total_tokens": 1118,
+                "start_time": "2026-01-13T23:32:53.005733",
+                "end_time": "2026-01-13T23:32:55.125003",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "The statement \"I don't care whether my apartment is tidy or not\" suggests a lack of concern or interest in maintaining a tidy living space. This lack of care can reflect a preference for a more relaxed approach to household chores or a belief that keeping the apartment tidy is not important. The statement may also imply a prioritization of other activities or values over housekeeping. The output should reflect an understanding of this perspective.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "ai-sage/GigaChat-20B-A3B-instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n"
+            ],
+            "response": "The statement \"I don't care whether my apartment is tidy or not\" suggests a lack of concern or interest in maintaining a tidy living space. This lack of care can reflect a preference for a more relaxed approach to household chores or a belief that keeping the apartment tidy is not important. The statement may also imply a prioritization of other activities or values over housekeeping. The output should reflect an understanding of this perspective.",
+            "prompt_tokens": 74,
+            "completion_tokens": 88,
+            "total_tokens": 162,
+            "start_time": "2026-01-13T23:32:48.627962",
+            "end_time": "2026-01-13T23:32:52.968607",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: I don't care whether my apartment is tidy or not.\nOutput:\n\n\nResponse:\nThe statement \"I don't care whether my apartment is tidy or not\" suggests a lack of concern or interest in maintaining a tidy living space. This lack of care can reflect a preference for a more relaxed approach to household chores or a belief that keeping the apartment tidy is not important. The statement may also imply a prioritization of other activities or values over housekeeping. The output should reflect an understanding of this perspective.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 990,
+                "completion_tokens": 18,
+                "total_tokens": 1008,
+                "start_time": "2026-01-13T23:32:52.987364",
+                "end_time": "2026-01-13T23:32:54.844311",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    }
+]

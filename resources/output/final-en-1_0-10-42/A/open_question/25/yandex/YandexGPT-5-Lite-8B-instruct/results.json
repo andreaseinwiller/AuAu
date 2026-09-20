@@ -1,0 +1,582 @@
+[
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement reflects a common experience in communication where repetition can be necessary due to various factors:\n\n1. **Complexity of the topic:** If the discussion involves intricate or unfamiliar concepts, repetition can help clarify information.\n2. **Different perspectives:** People may interpret information differently, and repeating key points can ensure all parties understand the same things.\n3. **Noise or distractions:** External factors like background noise or someone's inattention can cause messages to be missed, making repetition necessary.\n4. **Learning styles:** Some individuals process information better through repetition, especially in verbal communication.\n5. **Confirmation of understanding:** Repeating information can serve as a way to verify that everyone is on the same page.\n\nOverall, while repetition can be seen as indicative of potential misunderstandings or communication difficulties, it is often a practical strategy to enhance clarity and mutual understanding during discussions.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement reflects a common experience in communication where repetition can be necessary due to various factors:\n\n1. **Complexity of the topic:** If the discussion involves intricate or unfamiliar concepts, repetition can help clarify information.\n2. **Different perspectives:** People may interpret information differently, and repeating key points can ensure all parties understand the same things.\n3. **Noise or distractions:** External factors like background noise or someone's inattention can cause messages to be missed, making repetition necessary.\n4. **Learning styles:** Some individuals process information better through repetition, especially in verbal communication.\n5. **Confirmation of understanding:** Repeating information can serve as a way to verify that everyone is on the same page.\n\nOverall, while repetition can be seen as indicative of potential misunderstandings or communication difficulties, it is often a practical strategy to enhance clarity and mutual understanding during discussions.",
+            "prompt_tokens": 78,
+            "completion_tokens": 182,
+            "total_tokens": 260,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386443",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement reflects a common experience in communication where repetition can be necessary due to various factors:\n\n1. **Complexity of the topic:** If the discussion involves intricate or unfamiliar concepts, repetition can help clarify information.\n2. **Different perspectives:** People may interpret information differently, and repeating key points can ensure all parties understand the same things.\n3. **Noise or distractions:** External factors like background noise or someone's inattention can cause messages to be missed, making repetition necessary.\n4. **Learning styles:** Some individuals process information better through repetition, especially in verbal communication.\n5. **Confirmation of understanding:** Repeating information can serve as a way to verify that everyone is on the same page.\n\nOverall, while repetition can be seen as indicative of potential misunderstandings or communication difficulties, it is often a practical strategy to enhance clarity and mutual understanding during discussions.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1085,
+                "completion_tokens": 18,
+                "total_tokens": 1103,
+                "start_time": "2026-01-13T14:05:42.403125",
+                "end_time": "2026-01-13T14:05:48.138236",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement reflects the reality that communication is a complex process that can be affected by various factors, including differences in understanding, noise, distractions, or the complexity of the topic being discussed. Repeating oneself can help clarify and ensure that the message is received and understood correctly.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement reflects the reality that communication is a complex process that can be affected by various factors, including differences in understanding, noise, distractions, or the complexity of the topic being discussed. Repeating oneself can help clarify and ensure that the message is received and understood correctly.",
+            "prompt_tokens": 78,
+            "completion_tokens": 55,
+            "total_tokens": 133,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386466",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement reflects the reality that communication is a complex process that can be affected by various factors, including differences in understanding, noise, distractions, or the complexity of the topic being discussed. Repeating oneself can help clarify and ensure that the message is received and understood correctly.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 968,
+                "completion_tokens": 18,
+                "total_tokens": 986,
+                "start_time": "2026-01-13T14:05:42.401648",
+                "end_time": "2026-01-13T14:05:48.134837",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement suggests that in discussions, due to various factors such as complexity of the topic, noise, or distractions, it can be challenging to ensure clear communication. People may need to repeat themselves to make sure their message is understood correctly. This could be due to different reasons like misinterpretation, lack of attention, or the complexity of the subject matter.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement suggests that in discussions, due to various factors such as complexity of the topic, noise, or distractions, it can be challenging to ensure clear communication. People may need to repeat themselves to make sure their message is understood correctly. This could be due to different reasons like misinterpretation, lack of attention, or the complexity of the subject matter.",
+            "prompt_tokens": 78,
+            "completion_tokens": 72,
+            "total_tokens": 150,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386478",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement suggests that in discussions, due to various factors such as complexity of the topic, noise, or distractions, it can be challenging to ensure clear communication. People may need to repeat themselves to make sure their message is understood correctly. This could be due to different reasons like misinterpretation, lack of attention, or the complexity of the subject matter.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 985,
+                "completion_tokens": 18,
+                "total_tokens": 1003,
+                "start_time": "2026-01-13T14:05:42.406208",
+                "end_time": "2026-01-13T14:05:48.220622",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement suggests that in discussions, communication can sometimes be challenging and requires repetition to ensure understanding. It reflects the idea that effective communication is not always straightforward and can involve addressing misunderstandings or varying levels of attention and comprehension among participants.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement suggests that in discussions, communication can sometimes be challenging and requires repetition to ensure understanding. It reflects the idea that effective communication is not always straightforward and can involve addressing misunderstandings or varying levels of attention and comprehension among participants.",
+            "prompt_tokens": 78,
+            "completion_tokens": 48,
+            "total_tokens": 126,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386486",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement suggests that in discussions, communication can sometimes be challenging and requires repetition to ensure understanding. It reflects the idea that effective communication is not always straightforward and can involve addressing misunderstandings or varying levels of attention and comprehension among participants.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 960,
+                "completion_tokens": 18,
+                "total_tokens": 978,
+                "start_time": "2026-01-13T14:05:42.405775",
+                "end_time": "2026-01-13T14:05:48.129127",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement suggests that in the process of communication, especially during discussions, there may be a risk of misunderstanding. As a result, the speaker might need to repeat their thoughts or explanations multiple times to ensure clarity and mutual understanding. This could be due to various factors such as noise, distractions, different interpretations, or the complexity of the topic being discussed.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement suggests that in the process of communication, especially during discussions, there may be a risk of misunderstanding. As a result, the speaker might need to repeat their thoughts or explanations multiple times to ensure clarity and mutual understanding. This could be due to various factors such as noise, distractions, different interpretations, or the complexity of the topic being discussed.",
+            "prompt_tokens": 78,
+            "completion_tokens": 72,
+            "total_tokens": 150,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386495",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement suggests that in the process of communication, especially during discussions, there may be a risk of misunderstanding. As a result, the speaker might need to repeat their thoughts or explanations multiple times to ensure clarity and mutual understanding. This could be due to various factors such as noise, distractions, different interpretations, or the complexity of the topic being discussed.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 984,
+                "completion_tokens": 18,
+                "total_tokens": 1002,
+                "start_time": "2026-01-13T14:05:42.402639",
+                "end_time": "2026-01-13T14:05:48.181156",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement reflects a common observation about communication, acknowledging that sometimes repetition is necessary for clarity and understanding in discussions. It implies that misunderstandings can occur and that rephrasing or repeating information can help to overcome these obstacles.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement reflects a common observation about communication, acknowledging that sometimes repetition is necessary for clarity and understanding in discussions. It implies that misunderstandings can occur and that rephrasing or repeating information can help to overcome these obstacles.",
+            "prompt_tokens": 78,
+            "completion_tokens": 48,
+            "total_tokens": 126,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386503",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement reflects a common observation about communication, acknowledging that sometimes repetition is necessary for clarity and understanding in discussions. It implies that misunderstandings can occur and that rephrasing or repeating information can help to overcome these obstacles.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 958,
+                "completion_tokens": 18,
+                "total_tokens": 976,
+                "start_time": "2026-01-13T14:05:42.405057",
+                "end_time": "2026-01-13T14:05:48.156161",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement reflects the idea that effective communication sometimes requires repetition due to the potential for misunderstanding during a discussion. The reason for this could be various factors such as complexity of the topic, noise in the environment, or differences in how individuals interpret information.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement reflects the idea that effective communication sometimes requires repetition due to the potential for misunderstanding during a discussion. The reason for this could be various factors such as complexity of the topic, noise in the environment, or differences in how individuals interpret information.",
+            "prompt_tokens": 78,
+            "completion_tokens": 51,
+            "total_tokens": 129,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386511",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement reflects the idea that effective communication sometimes requires repetition due to the potential for misunderstanding during a discussion. The reason for this could be various factors such as complexity of the topic, noise in the environment, or differences in how individuals interpret information.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 963,
+                "completion_tokens": 18,
+                "total_tokens": 981,
+                "start_time": "2026-01-13T14:05:42.404663",
+                "end_time": "2026-01-13T14:05:48.136115",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement suggests that in the context of communication, there is often a need to repeat information multiple times to ensure clarity and understanding. This could be due to various factors such as distractions, differing levels of comprehension among participants, or the complexity of the topic being discussed.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement suggests that in the context of communication, there is often a need to repeat information multiple times to ensure clarity and understanding. This could be due to various factors such as distractions, differing levels of comprehension among participants, or the complexity of the topic being discussed.",
+            "prompt_tokens": 78,
+            "completion_tokens": 54,
+            "total_tokens": 132,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386520",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement suggests that in the context of communication, there is often a need to repeat information multiple times to ensure clarity and understanding. This could be due to various factors such as distractions, differing levels of comprehension among participants, or the complexity of the topic being discussed.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 967,
+                "completion_tokens": 18,
+                "total_tokens": 985,
+                "start_time": "2026-01-13T14:05:42.404229",
+                "end_time": "2026-01-13T14:05:48.131755",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement suggests that in discussions, due to various factors such as complexity of the topic, noise, distractions, or misunderstanding, it might be necessary for a person to repeat themselves multiple times to ensure their message is clearly understood. This could be influenced by communication barriers, differing perspectives, or the need for clarification. In some cases, repetition can help to reinforce the point being made and aid in better comprehension.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement suggests that in discussions, due to various factors such as complexity of the topic, noise, distractions, or misunderstanding, it might be necessary for a person to repeat themselves multiple times to ensure their message is clearly understood. This could be influenced by communication barriers, differing perspectives, or the need for clarification. In some cases, repetition can help to reinforce the point being made and aid in better comprehension.",
+            "prompt_tokens": 78,
+            "completion_tokens": 83,
+            "total_tokens": 161,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386528",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement suggests that in discussions, due to various factors such as complexity of the topic, noise, distractions, or misunderstanding, it might be necessary for a person to repeat themselves multiple times to ensure their message is clearly understood. This could be influenced by communication barriers, differing perspectives, or the need for clarification. In some cases, repetition can help to reinforce the point being made and aid in better comprehension.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 995,
+                "completion_tokens": 18,
+                "total_tokens": 1013,
+                "start_time": "2026-01-13T14:05:42.407332",
+                "end_time": "2026-01-13T14:05:48.179721",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": " This statement suggests that in the course of a discussion, there is a possibility of miscommunication, which requires repeating information to ensure understanding. The statement does not express a personal behavior or a frequently heard assertion that reflects different opinions about people's behavior in a judgmental way; it simply describes a common communication dynamic.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "yandex/YandexGPT-5-Lite-8B-instruct",
+            "temperature": 0.6,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n"
+            ],
+            "response": " This statement suggests that in the course of a discussion, there is a possibility of miscommunication, which requires repeating information to ensure understanding. The statement does not express a personal behavior or a frequently heard assertion that reflects different opinions about people's behavior in a judgmental way; it simply describes a common communication dynamic.",
+            "prompt_tokens": 78,
+            "completion_tokens": 65,
+            "total_tokens": 143,
+            "start_time": "2026-01-13T14:05:40.860259",
+            "end_time": "2026-01-13T14:05:42.386536",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: During a discussion, it is often necessary to repeat oneself several times to ensure that one is understood.\nOutput:\n\n\nResponse:\n This statement suggests that in the course of a discussion, there is a possibility of miscommunication, which requires repeating information to ensure understanding. The statement does not express a personal behavior or a frequently heard assertion that reflects different opinions about people's behavior in a judgmental way; it simply describes a common communication dynamic.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 976,
+                "completion_tokens": 18,
+                "total_tokens": 994,
+                "start_time": "2026-01-13T14:05:42.406622",
+                "end_time": "2026-01-13T14:05:48.137812",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    }
+]

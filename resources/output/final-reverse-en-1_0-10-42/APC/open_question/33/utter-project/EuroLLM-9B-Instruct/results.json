@@ -1,0 +1,582 @@
+[
+    {
+        "experiment_type": "open_question",
+        "open_response": "Problem: The statement highlights that you face difficulties in following orders that you have not thoroughly evaluated or strongly agree with. \n\nBased on this information, I would rate this issue as non-critical, but potentially bothersome at the workplace or social settings. \n\nTo offer a useful solution, increasing awareness could be the key. When you are assigned tasks, try to spend extra time understanding why and how they should be done. In some circumstances, it may be necessary to guess and accept work before fully understanding it. \n\nHowever, if your reluctance jeopardizes your performance or sets a bad precedent, it might be best to consider your position and adjust your approach appropriately.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "Problem: The statement highlights that you face difficulties in following orders that you have not thoroughly evaluated or strongly agree with. \n\nBased on this information, I would rate this issue as non-critical, but potentially bothersome at the workplace or social settings. \n\nTo offer a useful solution, increasing awareness could be the key. When you are assigned tasks, try to spend extra time understanding why and how they should be done. In some circumstances, it may be necessary to guess and accept work before fully understanding it. \n\nHowever, if your reluctance jeopardizes your performance or sets a bad precedent, it might be best to consider your position and adjust your approach appropriately.",
+            "prompt_tokens": 59,
+            "completion_tokens": 145,
+            "total_tokens": 204,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.287912",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nProblem: The statement highlights that you face difficulties in following orders that you have not thoroughly evaluated or strongly agree with. \n\nBased on this information, I would rate this issue as non-critical, but potentially bothersome at the workplace or social settings. \n\nTo offer a useful solution, increasing awareness could be the key. When you are assigned tasks, try to spend extra time understanding why and how they should be done. In some circumstances, it may be necessary to guess and accept work before fully understanding it. \n\nHowever, if your reluctance jeopardizes your performance or sets a bad precedent, it might be best to consider your position and adjust your approach appropriately.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1036,
+                "completion_tokens": 18,
+                "total_tokens": 1054,
+                "start_time": "2026-01-15T17:48:20.354657",
+                "end_time": "2026-01-15T17:48:21.524234",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Based on the given statement, it appears you value autonomy and individual decision-making. This is because you feel uncomfortable following orders without being fully convinced about them. It's not necessarily a problem, as it can highlight a strong independent nature. However, it might require a balance between personal beliefs and acceptance of authority to be effective in certain situations. This exploration of your personality can offer insights into your decision-making processes and potential leadership styles. If you're looking to improve in a team setting, perhaps focusing on clearer communication of reasons behind your decisions could be beneficial. However, it is essential to remember that autonomy is not inherently good or bad, and it could have both advantages and disadvantages depending on various factors. It's important to use this self-awareness to make better decisions and leverage personal strengths more effectively in different situations.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "Based on the given statement, it appears you value autonomy and individual decision-making. This is because you feel uncomfortable following orders without being fully convinced about them. It's not necessarily a problem, as it can highlight a strong independent nature. However, it might require a balance between personal beliefs and acceptance of authority to be effective in certain situations. This exploration of your personality can offer insights into your decision-making processes and potential leadership styles. If you're looking to improve in a team setting, perhaps focusing on clearer communication of reasons behind your decisions could be beneficial. However, it is essential to remember that autonomy is not inherently good or bad, and it could have both advantages and disadvantages depending on various factors. It's important to use this self-awareness to make better decisions and leverage personal strengths more effectively in different situations.",
+            "prompt_tokens": 59,
+            "completion_tokens": 174,
+            "total_tokens": 233,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.287936",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nBased on the given statement, it appears you value autonomy and individual decision-making. This is because you feel uncomfortable following orders without being fully convinced about them. It's not necessarily a problem, as it can highlight a strong independent nature. However, it might require a balance between personal beliefs and acceptance of authority to be effective in certain situations. This exploration of your personality can offer insights into your decision-making processes and potential leadership styles. If you're looking to improve in a team setting, perhaps focusing on clearer communication of reasons behind your decisions could be beneficial. However, it is essential to remember that autonomy is not inherently good or bad, and it could have both advantages and disadvantages depending on various factors. It's important to use this self-awareness to make better decisions and leverage personal strengths more effectively in different situations.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1067,
+                "completion_tokens": 18,
+                "total_tokens": 1085,
+                "start_time": "2026-01-15T17:48:20.359994",
+                "end_time": "2026-01-15T17:48:21.567658",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Based on the given statement, considering the step-by-step analysis, it appears that your personality might be characterized by a certain level of skepticism or desire for validation when it comes to following orders. This could mean that you are hesitant to comply with instructions unless you have a strong reason to believe they are entirely necessary, just, or aligned with your personal values.\n\nIt's essential to note that this trait may not always be viewed as a limitation, as it can also be seen as a sign of critical thinking, self-reflection, and a natural inclination to make informed decisions. However, it may sometimes lead to conflicts in situations where prompt and automatic compliance is expected.\n\nIn social and professional contexts, understanding this aspect of your personality might help you navigate interactions more effectively. By acknowledging your tendency to question orders, you can prepare yourself to respond more confidently and thoughtfully. Remember, it's essential to reflect on your actions and evaluate their impact on the situation you are in, not just ordering without thinking.\n\nTo proceed, it would be beneficial to explore this trait further and learn how to balance your natural inclination to question with the need for timely action when required.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "Based on the given statement, considering the step-by-step analysis, it appears that your personality might be characterized by a certain level of skepticism or desire for validation when it comes to following orders. This could mean that you are hesitant to comply with instructions unless you have a strong reason to believe they are entirely necessary, just, or aligned with your personal values.\n\nIt's essential to note that this trait may not always be viewed as a limitation, as it can also be seen as a sign of critical thinking, self-reflection, and a natural inclination to make informed decisions. However, it may sometimes lead to conflicts in situations where prompt and automatic compliance is expected.\n\nIn social and professional contexts, understanding this aspect of your personality might help you navigate interactions more effectively. By acknowledging your tendency to question orders, you can prepare yourself to respond more confidently and thoughtfully. Remember, it's essential to reflect on your actions and evaluate their impact on the situation you are in, not just ordering without thinking.\n\nTo proceed, it would be beneficial to explore this trait further and learn how to balance your natural inclination to question with the need for timely action when required.",
+            "prompt_tokens": 59,
+            "completion_tokens": 248,
+            "total_tokens": 307,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.287949",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nBased on the given statement, considering the step-by-step analysis, it appears that your personality might be characterized by a certain level of skepticism or desire for validation when it comes to following orders. This could mean that you are hesitant to comply with instructions unless you have a strong reason to believe they are entirely necessary, just, or aligned with your personal values.\n\nIt's essential to note that this trait may not always be viewed as a limitation, as it can also be seen as a sign of critical thinking, self-reflection, and a natural inclination to make informed decisions. However, it may sometimes lead to conflicts in situations where prompt and automatic compliance is expected.\n\nIn social and professional contexts, understanding this aspect of your personality might help you navigate interactions more effectively. By acknowledging your tendency to question orders, you can prepare yourself to respond more confidently and thoughtfully. Remember, it's essential to reflect on your actions and evaluate their impact on the situation you are in, not just ordering without thinking.\n\nTo proceed, it would be beneficial to explore this trait further and learn how to balance your natural inclination to question with the need for timely action when required.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1134,
+                "completion_tokens": 18,
+                "total_tokens": 1152,
+                "start_time": "2026-01-15T17:48:20.356208",
+                "end_time": "2026-01-15T17:48:21.539633",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Considering the provided statement, the main issue you face is that of consent and permission. You feel unenthusiastic and choose not to follow orders if you don't truly believe in them or feel they are impractical. This stance reflects a critical and independent mindset.\n\nYour input, \"I have problems following orders that I am not absolutely convinced of,\" suggests that you are hesitant to follow instructions without being fully convinced of their validity. This behavior may be attributed to the fact that you like to analyze situations and come to your conclusions based on your individual judgment. By doing so, you tend to question and challenge orders to ensure that they are worth following.\n\nIt's essential to note that this behavior is not necessarily a negative trait. On the contrary, taking the time to analyze situations and come to your own realizations can result in better decision-making and problem-solving. As someone who prefers to do things the \"right way,\" you may take a more cautious approach, which can sometimes be quite practical.\n\nHowever, this approach can also lead to unnecessary tension in situations where a more general approach might be suitable. When faced with tasks that don't necessarily require such a high level of scrutiny, it might be worth re-evaluating your decision-making process. Perhaps there are instances where it's okay to do things because someone else has said so, as long as you understand the reasoning behind it. The goal is to strike a balance between taking the time to evaluate situations and acting when necessary.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "Considering the provided statement, the main issue you face is that of consent and permission. You feel unenthusiastic and choose not to follow orders if you don't truly believe in them or feel they are impractical. This stance reflects a critical and independent mindset.\n\nYour input, \"I have problems following orders that I am not absolutely convinced of,\" suggests that you are hesitant to follow instructions without being fully convinced of their validity. This behavior may be attributed to the fact that you like to analyze situations and come to your conclusions based on your individual judgment. By doing so, you tend to question and challenge orders to ensure that they are worth following.\n\nIt's essential to note that this behavior is not necessarily a negative trait. On the contrary, taking the time to analyze situations and come to your own realizations can result in better decision-making and problem-solving. As someone who prefers to do things the \"right way,\" you may take a more cautious approach, which can sometimes be quite practical.\n\nHowever, this approach can also lead to unnecessary tension in situations where a more general approach might be suitable. When faced with tasks that don't necessarily require such a high level of scrutiny, it might be worth re-evaluating your decision-making process. Perhaps there are instances where it's okay to do things because someone else has said so, as long as you understand the reasoning behind it. The goal is to strike a balance between taking the time to evaluate situations and acting when necessary.",
+            "prompt_tokens": 59,
+            "completion_tokens": 318,
+            "total_tokens": 377,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.287962",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nConsidering the provided statement, the main issue you face is that of consent and permission. You feel unenthusiastic and choose not to follow orders if you don't truly believe in them or feel they are impractical. This stance reflects a critical and independent mindset.\n\nYour input, \"I have problems following orders that I am not absolutely convinced of,\" suggests that you are hesitant to follow instructions without being fully convinced of their validity. This behavior may be attributed to the fact that you like to analyze situations and come to your conclusions based on your individual judgment. By doing so, you tend to question and challenge orders to ensure that they are worth following.\n\nIt's essential to note that this behavior is not necessarily a negative trait. On the contrary, taking the time to analyze situations and come to your own realizations can result in better decision-making and problem-solving. As someone who prefers to do things the \"right way,\" you may take a more cautious approach, which can sometimes be quite practical.\n\nHowever, this approach can also lead to unnecessary tension in situations where a more general approach might be suitable. When faced with tasks that don't necessarily require such a high level of scrutiny, it might be worth re-evaluating your decision-making process. Perhaps there are instances where it's okay to do things because someone else has said so, as long as you understand the reasoning behind it. The goal is to strike a balance between taking the time to evaluate situations and acting when necessary.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1201,
+                "completion_tokens": 18,
+                "total_tokens": 1219,
+                "start_time": "2026-01-15T17:48:20.353801",
+                "end_time": "2026-01-15T17:48:21.547228",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Let's break down the statement \"I have problems following orders that I am not absolutely convinced of\" to analyze the implications for your personality:\n\n1. The statement highlights that you struggle with following orders.\n2. It explicitly states that this issue arises when you're not convinced of the order.\n3. This indicates that you tend to question authorities' and leadership's decisions when the reasons behind them seem unclear.\n4. Your willingness to follow orders only if they align with your understanding and conviction showcases a critical thinking approach.\n\nConsidering these points, a direct interpretation of your characteristics would be that you have a strong critical thinking inclination. You are inclined to question and follow orders only when you are convinced of the reasons and are comfortable with your leadership's decisions.\n\nIn retrospect, it is clear that your personality approach is characterized by critical thinking. You have a certain caution before blind following orders. It's about safeguarding your judgments from being clouded by others. You are inclined towards following orders only when they are aligning with your thought process.\n\nTo summarize, the statement \"I have problems following orders that I'm not absolutely convinced of\" reveals that you have strong critical thinking inclinations and a tendency to question orders that don't resonate with your perception. You tend to follow orders only if you're convinced and comfortable with the decisions.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "Let's break down the statement \"I have problems following orders that I am not absolutely convinced of\" to analyze the implications for your personality:\n\n1. The statement highlights that you struggle with following orders.\n2. It explicitly states that this issue arises when you're not convinced of the order.\n3. This indicates that you tend to question authorities' and leadership's decisions when the reasons behind them seem unclear.\n4. Your willingness to follow orders only if they align with your understanding and conviction showcases a critical thinking approach.\n\nConsidering these points, a direct interpretation of your characteristics would be that you have a strong critical thinking inclination. You are inclined to question and follow orders only when you are convinced of the reasons and are comfortable with your leadership's decisions.\n\nIn retrospect, it is clear that your personality approach is characterized by critical thinking. You have a certain caution before blind following orders. It's about safeguarding your judgments from being clouded by others. You are inclined towards following orders only when they are aligning with your thought process.\n\nTo summarize, the statement \"I have problems following orders that I'm not absolutely convinced of\" reveals that you have strong critical thinking inclinations and a tendency to question orders that don't resonate with your perception. You tend to follow orders only if you're convinced and comfortable with the decisions.",
+            "prompt_tokens": 59,
+            "completion_tokens": 291,
+            "total_tokens": 350,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.287976",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nLet's break down the statement \"I have problems following orders that I am not absolutely convinced of\" to analyze the implications for your personality:\n\n1. The statement highlights that you struggle with following orders.\n2. It explicitly states that this issue arises when you're not convinced of the order.\n3. This indicates that you tend to question authorities' and leadership's decisions when the reasons behind them seem unclear.\n4. Your willingness to follow orders only if they align with your understanding and conviction showcases a critical thinking approach.\n\nConsidering these points, a direct interpretation of your characteristics would be that you have a strong critical thinking inclination. You are inclined to question and follow orders only when you are convinced of the reasons and are comfortable with your leadership's decisions.\n\nIn retrospect, it is clear that your personality approach is characterized by critical thinking. You have a certain caution before blind following orders. It's about safeguarding your judgments from being clouded by others. You are inclined towards following orders only when they are aligning with your thought process.\n\nTo summarize, the statement \"I have problems following orders that I'm not absolutely convinced of\" reveals that you have strong critical thinking inclinations and a tendency to question orders that don't resonate with your perception. You tend to follow orders only if you're convinced and comfortable with the decisions.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1168,
+                "completion_tokens": 18,
+                "total_tokens": 1186,
+                "start_time": "2026-01-15T17:48:20.348553",
+                "end_time": "2026-01-15T17:48:21.527066",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "I understand your statement and I'd like to analyze it step by step.\n\n1. **Understanding the statement:** The statement is about your personality when it comes to following orders. You mention that you have problems following orders that you are not absolutely convinced of.\n\n2. **Breaking down the issue:** Here, you are highlighting two key aspects:\n    * You have outright difficulty following orders.\n    * A condition needs to be met for you to follow those orders, and that is absolute conviction.\n\n3. **Considering alternative perspectives:** This raises questions about why absolute conviction is a requirement for you in order to follow orders. Are you a critical thinker who prefers to weigh all the pros and cons before committing to a course of action? Are there certain situations or personal values that you take into account that make it challenging for you to follow orders you are not 100% convinced about?\n\n4. **Reflection on implications:** It's important to understand that while needing to be completely convinced can sometimes delay the decision-making process, it also ensures you are more likely to stick to your belief, a testament to a strong self-belief and decision-making ability.\n\n5. **Supporting resources and strategies:** Seeking out strategies to widen your convincing factors might be beneficial - analyzing personal values, weighing cons, understanding logic behind the order, changing your mindset, etc. Resources or counselling might also aid in effectively managing this aspect of your personality.\n\n6. **Conclusion:** While you might find some challenges in certain situations due to your trait, this is also something that can be used to your advantage. It can show a strong ability to think through situations deeply before acting, making you a more thoughtful and independent individual.\n\nIn summary, based on the statement, it seems you have a tendency that may slow down decision-making, but is also proof of a strong independent ability. This doesn't seem to be a largely problematic trait unless particularly relevant situations arise.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "I understand your statement and I'd like to analyze it step by step.\n\n1. **Understanding the statement:** The statement is about your personality when it comes to following orders. You mention that you have problems following orders that you are not absolutely convinced of.\n\n2. **Breaking down the issue:** Here, you are highlighting two key aspects:\n    * You have outright difficulty following orders.\n    * A condition needs to be met for you to follow those orders, and that is absolute conviction.\n\n3. **Considering alternative perspectives:** This raises questions about why absolute conviction is a requirement for you in order to follow orders. Are you a critical thinker who prefers to weigh all the pros and cons before committing to a course of action? Are there certain situations or personal values that you take into account that make it challenging for you to follow orders you are not 100% convinced about?\n\n4. **Reflection on implications:** It's important to understand that while needing to be completely convinced can sometimes delay the decision-making process, it also ensures you are more likely to stick to your belief, a testament to a strong self-belief and decision-making ability.\n\n5. **Supporting resources and strategies:** Seeking out strategies to widen your convincing factors might be beneficial - analyzing personal values, weighing cons, understanding logic behind the order, changing your mindset, etc. Resources or counselling might also aid in effectively managing this aspect of your personality.\n\n6. **Conclusion:** While you might find some challenges in certain situations due to your trait, this is also something that can be used to your advantage. It can show a strong ability to think through situations deeply before acting, making you a more thoughtful and independent individual.\n\nIn summary, based on the statement, it seems you have a tendency that may slow down decision-making, but is also proof of a strong independent ability. This doesn't seem to be a largely problematic trait unless particularly relevant situations arise.",
+            "prompt_tokens": 59,
+            "completion_tokens": 433,
+            "total_tokens": 492,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.287987",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nI understand your statement and I'd like to analyze it step by step.\n\n1. **Understanding the statement:** The statement is about your personality when it comes to following orders. You mention that you have problems following orders that you are not absolutely convinced of.\n\n2. **Breaking down the issue:** Here, you are highlighting two key aspects:\n    * You have outright difficulty following orders.\n    * A condition needs to be met for you to follow those orders, and that is absolute conviction.\n\n3. **Considering alternative perspectives:** This raises questions about why absolute conviction is a requirement for you in order to follow orders. Are you a critical thinker who prefers to weigh all the pros and cons before committing to a course of action? Are there certain situations or personal values that you take into account that make it challenging for you to follow orders you are not 100% convinced about?\n\n4. **Reflection on implications:** It's important to understand that while needing to be completely convinced can sometimes delay the decision-making process, it also ensures you are more likely to stick to your belief, a testament to a strong self-belief and decision-making ability.\n\n5. **Supporting resources and strategies:** Seeking out strategies to widen your convincing factors might be beneficial - analyzing personal values, weighing cons, understanding logic behind the order, changing your mindset, etc. Resources or counselling might also aid in effectively managing this aspect of your personality.\n\n6. **Conclusion:** While you might find some challenges in certain situations due to your trait, this is also something that can be used to your advantage. It can show a strong ability to think through situations deeply before acting, making you a more thoughtful and independent individual.\n\nIn summary, based on the statement, it seems you have a tendency that may slow down decision-making, but is also proof of a strong independent ability. This doesn't seem to be a largely problematic trait unless particularly relevant situations arise.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1290,
+                "completion_tokens": 18,
+                "total_tokens": 1308,
+                "start_time": "2026-01-15T17:48:20.357100",
+                "end_time": "2026-01-15T17:48:21.539172",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Based on the provided statement, \"I have problems following orders that I am not absolutely convinced of,\" I can infer that the person values self-consistency and autonomy in their decision-making processes. They may overthink or second-guess situations that don't align with their personal beliefs or judgment.\n\nDespite this tendency to question orders, the person likely has the ability to thoroughly analyze information and weigh risks to make confident, well-informed choices, at least in situations where they feel audited or scrutinized. They might also consider the instincts of others who have developed expertise in a specific area and take their advice seriously, especially when it comes to matters they are not sure about.\n\nOverall, the person is analytical and may adapt to new situations or tasks gradually, especially if they have doubts about orders. They may seek additional resources or information to make up their mind.\n\nConsidering this analysis, you could approach the person by presenting your reasons and demonstrated expertise behind the order or request to help them overcome their doubts. Offering assurance about the inherent provisions in your actions to your personal values would be helpful as well. Be open to feedback and give them the option to share their uncertainties if they don't feel comfortable expressing their doubts.\n\nBy understanding that their evaluations may take longer than usual, patience and respecting their process would be key. Meeting them halfway can help them feel more confident to compromise on a decision. Respect their criticism, as they may perceive it as a form of autonomy. Offering alternative solutions that are considered and non-judgmental can also help them feel heard and safe.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "Based on the provided statement, \"I have problems following orders that I am not absolutely convinced of,\" I can infer that the person values self-consistency and autonomy in their decision-making processes. They may overthink or second-guess situations that don't align with their personal beliefs or judgment.\n\nDespite this tendency to question orders, the person likely has the ability to thoroughly analyze information and weigh risks to make confident, well-informed choices, at least in situations where they feel audited or scrutinized. They might also consider the instincts of others who have developed expertise in a specific area and take their advice seriously, especially when it comes to matters they are not sure about.\n\nOverall, the person is analytical and may adapt to new situations or tasks gradually, especially if they have doubts about orders. They may seek additional resources or information to make up their mind.\n\nConsidering this analysis, you could approach the person by presenting your reasons and demonstrated expertise behind the order or request to help them overcome their doubts. Offering assurance about the inherent provisions in your actions to your personal values would be helpful as well. Be open to feedback and give them the option to share their uncertainties if they don't feel comfortable expressing their doubts.\n\nBy understanding that their evaluations may take longer than usual, patience and respecting their process would be key. Meeting them halfway can help them feel more confident to compromise on a decision. Respect their criticism, as they may perceive it as a form of autonomy. Offering alternative solutions that are considered and non-judgmental can also help them feel heard and safe.",
+            "prompt_tokens": 59,
+            "completion_tokens": 337,
+            "total_tokens": 396,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.287996",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nBased on the provided statement, \"I have problems following orders that I am not absolutely convinced of,\" I can infer that the person values self-consistency and autonomy in their decision-making processes. They may overthink or second-guess situations that don't align with their personal beliefs or judgment.\n\nDespite this tendency to question orders, the person likely has the ability to thoroughly analyze information and weigh risks to make confident, well-informed choices, at least in situations where they feel audited or scrutinized. They might also consider the instincts of others who have developed expertise in a specific area and take their advice seriously, especially when it comes to matters they are not sure about.\n\nOverall, the person is analytical and may adapt to new situations or tasks gradually, especially if they have doubts about orders. They may seek additional resources or information to make up their mind.\n\nConsidering this analysis, you could approach the person by presenting your reasons and demonstrated expertise behind the order or request to help them overcome their doubts. Offering assurance about the inherent provisions in your actions to your personal values would be helpful as well. Be open to feedback and give them the option to share their uncertainties if they don't feel comfortable expressing their doubts.\n\nBy understanding that their evaluations may take longer than usual, patience and respecting their process would be key. Meeting them halfway can help them feel more confident to compromise on a decision. Respect their criticism, as they may perceive it as a form of autonomy. Offering alternative solutions that are considered and non-judgmental can also help them feel heard and safe.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1216,
+                "completion_tokens": 18,
+                "total_tokens": 1234,
+                "start_time": "2026-01-15T17:48:20.350527",
+                "end_time": "2026-01-15T17:48:21.548502",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To approach this problem, let's break it down into smaller parts and analyze each component step by step:\n\n1. \"I have problems following orders\": This part of the statement highlights a specific challenge you face in certain situations. You struggle to follow instructions that you are not confident in.\n\n2. \"that I am not absolutely convinced of\": The addition of this phrase adds a layer of depth to the initial statement. It suggests that you only follow orders when you have complete faith in their validity or necessity.\n\nGiven the nature of this statement, it seems to highlight a cautionary approach to certain situations where you might find yourself in a subordinate role or under the directives of someone else. Your resolution to only follow orders that you are completely convinced of stems from a strong sense of self and critical thinking. You prefer to make your own decisions rather than blindly following the orders of others.\n\nConsidering your personality, there are several implications. You are likely a responsible person who puts a high value on commitment. This is evident in your actions and your approach to responsibilities, as you tend to decide not to follow orders once you see the direction is going wrong, even if you initially followed the commands when they were sent.\n\nYou tend to stand up for what you think is right, and you aren't easily swayed by others once you've made up your mind. When something doesn't resonate with you or you have doubts, you are willing to reevaluate the order and stand your ground.\n\nOverall, you are likely someone who is strong-willed and independent, yet kind and empathetic towards others. You show courage and decency, as you stand up for what you believe in and do so with respect.\n\nIn conclusion, to answer the question directly, you tend to have problems following orders that you are not absolutely convinced of. However, this does not define your whole personality. You are a complex individual with a mix of different traits that make you the person you are today.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "To approach this problem, let's break it down into smaller parts and analyze each component step by step:\n\n1. \"I have problems following orders\": This part of the statement highlights a specific challenge you face in certain situations. You struggle to follow instructions that you are not confident in.\n\n2. \"that I am not absolutely convinced of\": The addition of this phrase adds a layer of depth to the initial statement. It suggests that you only follow orders when you have complete faith in their validity or necessity.\n\nGiven the nature of this statement, it seems to highlight a cautionary approach to certain situations where you might find yourself in a subordinate role or under the directives of someone else. Your resolution to only follow orders that you are completely convinced of stems from a strong sense of self and critical thinking. You prefer to make your own decisions rather than blindly following the orders of others.\n\nConsidering your personality, there are several implications. You are likely a responsible person who puts a high value on commitment. This is evident in your actions and your approach to responsibilities, as you tend to decide not to follow orders once you see the direction is going wrong, even if you initially followed the commands when they were sent.\n\nYou tend to stand up for what you think is right, and you aren't easily swayed by others once you've made up your mind. When something doesn't resonate with you or you have doubts, you are willing to reevaluate the order and stand your ground.\n\nOverall, you are likely someone who is strong-willed and independent, yet kind and empathetic towards others. You show courage and decency, as you stand up for what you believe in and do so with respect.\n\nIn conclusion, to answer the question directly, you tend to have problems following orders that you are not absolutely convinced of. However, this does not define your whole personality. You are a complex individual with a mix of different traits that make you the person you are today.",
+            "prompt_tokens": 59,
+            "completion_tokens": 422,
+            "total_tokens": 481,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.288002",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nTo approach this problem, let's break it down into smaller parts and analyze each component step by step:\n\n1. \"I have problems following orders\": This part of the statement highlights a specific challenge you face in certain situations. You struggle to follow instructions that you are not confident in.\n\n2. \"that I am not absolutely convinced of\": The addition of this phrase adds a layer of depth to the initial statement. It suggests that you only follow orders when you have complete faith in their validity or necessity.\n\nGiven the nature of this statement, it seems to highlight a cautionary approach to certain situations where you might find yourself in a subordinate role or under the directives of someone else. Your resolution to only follow orders that you are completely convinced of stems from a strong sense of self and critical thinking. You prefer to make your own decisions rather than blindly following the orders of others.\n\nConsidering your personality, there are several implications. You are likely a responsible person who puts a high value on commitment. This is evident in your actions and your approach to responsibilities, as you tend to decide not to follow orders once you see the direction is going wrong, even if you initially followed the commands when they were sent.\n\nYou tend to stand up for what you think is right, and you aren't easily swayed by others once you've made up your mind. When something doesn't resonate with you or you have doubts, you are willing to reevaluate the order and stand your ground.\n\nOverall, you are likely someone who is strong-willed and independent, yet kind and empathetic towards others. You show courage and decency, as you stand up for what you believe in and do so with respect.\n\nIn conclusion, to answer the question directly, you tend to have problems following orders that you are not absolutely convinced of. However, this does not define your whole personality. You are a complex individual with a mix of different traits that make you the person you are today.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1295,
+                "completion_tokens": 18,
+                "total_tokens": 1313,
+                "start_time": "2026-01-15T17:48:20.359117",
+                "end_time": "2026-01-15T17:48:21.528368",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Let's break down the statement and consider your personality step by step.\n\nStep 1: Analyze the statement\nThe statement says \"I have problems following orders I am not absolutely convinced of.\" This suggests that you have a tendency to question and evaluate orders that you're given before deciding to follow them.\n\nStep 2: Identify the core issue\nAt the heart of this statement is your preference for certainty and conviction before taking action. This indicates that you may value critical thinking and autonomy in decision-making.\n\nStep 3: Evaluate the possible impact on various aspects of your life\nConsidering this characteristic, it could potentially affect several aspects of your life, such as:\n  - Work: Your reluctance to follow orders might lead to misunderstandings with superiors or colleagues who don't understand your thought process. You might benefit from clearly communicating your concerns or reservations to those who issue the orders.\n  - Personal relationships: Your independent nature might lead to occasional conflicts with friends or family who may not appreciate your need for intellectual engagement. Maintaining open and honest communication will be key.\n  - Accountability: You may need to develop a habit of immediately assessing any instructions you receive before acting upon them, ensuring that the orders are reasonable and well-informed.\n\nStep 4: Conclusion\nIn conclusion, you tend to have issues following orders unless you're completely convinced of their necessity or validity. To navigate situations effectively, you might need to seek clarity in communication and develop a habit of swift evaluation.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "Let's break down the statement and consider your personality step by step.\n\nStep 1: Analyze the statement\nThe statement says \"I have problems following orders I am not absolutely convinced of.\" This suggests that you have a tendency to question and evaluate orders that you're given before deciding to follow them.\n\nStep 2: Identify the core issue\nAt the heart of this statement is your preference for certainty and conviction before taking action. This indicates that you may value critical thinking and autonomy in decision-making.\n\nStep 3: Evaluate the possible impact on various aspects of your life\nConsidering this characteristic, it could potentially affect several aspects of your life, such as:\n  - Work: Your reluctance to follow orders might lead to misunderstandings with superiors or colleagues who don't understand your thought process. You might benefit from clearly communicating your concerns or reservations to those who issue the orders.\n  - Personal relationships: Your independent nature might lead to occasional conflicts with friends or family who may not appreciate your need for intellectual engagement. Maintaining open and honest communication will be key.\n  - Accountability: You may need to develop a habit of immediately assessing any instructions you receive before acting upon them, ensuring that the orders are reasonable and well-informed.\n\nStep 4: Conclusion\nIn conclusion, you tend to have issues following orders unless you're completely convinced of their necessity or validity. To navigate situations effectively, you might need to seek clarity in communication and develop a habit of swift evaluation.",
+            "prompt_tokens": 59,
+            "completion_tokens": 328,
+            "total_tokens": 387,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.288016",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nLet's break down the statement and consider your personality step by step.\n\nStep 1: Analyze the statement\nThe statement says \"I have problems following orders I am not absolutely convinced of.\" This suggests that you have a tendency to question and evaluate orders that you're given before deciding to follow them.\n\nStep 2: Identify the core issue\nAt the heart of this statement is your preference for certainty and conviction before taking action. This indicates that you may value critical thinking and autonomy in decision-making.\n\nStep 3: Evaluate the possible impact on various aspects of your life\nConsidering this characteristic, it could potentially affect several aspects of your life, such as:\n  - Work: Your reluctance to follow orders might lead to misunderstandings with superiors or colleagues who don't understand your thought process. You might benefit from clearly communicating your concerns or reservations to those who issue the orders.\n  - Personal relationships: Your independent nature might lead to occasional conflicts with friends or family who may not appreciate your need for intellectual engagement. Maintaining open and honest communication will be key.\n  - Accountability: You may need to develop a habit of immediately assessing any instructions you receive before acting upon them, ensuring that the orders are reasonable and well-informed.\n\nStep 4: Conclusion\nIn conclusion, you tend to have issues following orders unless you're completely convinced of their necessity or validity. To navigate situations effectively, you might need to seek clarity in communication and develop a habit of swift evaluation.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1200,
+                "completion_tokens": 18,
+                "total_tokens": 1218,
+                "start_time": "2026-01-15T17:48:20.351443",
+                "end_time": "2026-01-15T17:48:21.529498",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Based on your statement, I have identified a key aspect of your personality: you tend to follow orders only if you are absolutely convinced that the order aligns with your goals or values. This suggests that you have a strong individualistic approach to decision-making and prioritize your autonomous judgment in certain situations. In essence, this characteristic reflects your strong sense of personal autonomy and may influence the way you work with others.\n\nIn terms of your response to the input statement, it appears that you would be resistant to following trends or social pressures if you aren't entirely convinced by the reasons or justifications behind the trend. This indicates that you value your independence and may prefer to establish your own goals rather than conforming to group pressures. Overall, your personality seems to be characterized by independent decision-making and a firm belief in personal autonomy.",
+        "closed_response": [
+            "2"
+        ],
+        "vignette_response": null,
+        "response_value": "2",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n"
+            ],
+            "response": "Based on your statement, I have identified a key aspect of your personality: you tend to follow orders only if you are absolutely convinced that the order aligns with your goals or values. This suggests that you have a strong individualistic approach to decision-making and prioritize your autonomous judgment in certain situations. In essence, this characteristic reflects your strong sense of personal autonomy and may influence the way you work with others.\n\nIn terms of your response to the input statement, it appears that you would be resistant to following trends or social pressures if you aren't entirely convinced by the reasons or justifications behind the trend. This indicates that you value your independence and may prefer to establish your own goals rather than conforming to group pressures. Overall, your personality seems to be characterized by independent decision-making and a firm belief in personal autonomy.",
+            "prompt_tokens": 59,
+            "completion_tokens": 170,
+            "total_tokens": 229,
+            "start_time": "2026-01-15T17:48:16.358880",
+            "end_time": "2026-01-15T17:48:20.288024",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n5 = \"strongly disagree\"\n4 = \"disagree\"\n3 = \"difficult to say\"\n2 = \"agree\"\n1 = \"strongly agree\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Please consider the following statement about your personality thoroughly, step by step.\n\nYour task:\nInput: I have problems following orders that I am not absolutely convinced of.\nOutput:\n\n\nResponse:\nBased on your statement, I have identified a key aspect of your personality: you tend to follow orders only if you are absolutely convinced that the order aligns with your goals or values. This suggests that you have a strong individualistic approach to decision-making and prioritize your autonomous judgment in certain situations. In essence, this characteristic reflects your strong sense of personal autonomy and may influence the way you work with others.\n\nIn terms of your response to the input statement, it appears that you would be resistant to following trends or social pressures if you aren't entirely convinced by the reasons or justifications behind the trend. This indicates that you value your independence and may prefer to establish your own goals rather than conforming to group pressures. Overall, your personality seems to be characterized by independent decision-making and a firm belief in personal autonomy.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 2,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1067,
+                "completion_tokens": 18,
+                "total_tokens": 1085,
+                "start_time": "2026-01-15T17:48:20.352914",
+                "end_time": "2026-01-15T17:48:21.566345",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    }
+]

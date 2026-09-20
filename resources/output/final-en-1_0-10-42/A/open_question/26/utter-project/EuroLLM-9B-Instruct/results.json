@@ -1,0 +1,582 @@
+[
+    {
+        "experiment_type": "open_question",
+        "open_response": "As a helpful assistant, I'd like to address the statement step by step.\n\nStep 1: Analyze the statement - The statement suggests that there are numerous unusual or unfounded ideas spreading and fooling people.\n\nStep 2: Identify the concern - The concern appears to be about the availability and spread of misleading or outlandish information.\n\nStep 3: Consider possible solutions - Reducing the spread of these ideas, promoting fact-checking, and encouraging media literacy are likely strategies to address this issue.\n\nStep 4: Evaluate the effectiveness - These solutions might be effective in mitigating the spread of misleading or unfounded ideas, but more research is needed to understand the full impact.\n\nStep 5: Formulate a response - In conclusion, addressing the spread of misinformation is a complex challenge that requires a multi-faceted approach. This may include promoting fact-checking, engaging media literacy, and providing platforms that support intellectual discussion. Additionally, supporting critical thinking, research, and rational arguments may further help solve this problem.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "As a helpful assistant, I'd like to address the statement step by step.\n\nStep 1: Analyze the statement - The statement suggests that there are numerous unusual or unfounded ideas spreading and fooling people.\n\nStep 2: Identify the concern - The concern appears to be about the availability and spread of misleading or outlandish information.\n\nStep 3: Consider possible solutions - Reducing the spread of these ideas, promoting fact-checking, and encouraging media literacy are likely strategies to address this issue.\n\nStep 4: Evaluate the effectiveness - These solutions might be effective in mitigating the spread of misleading or unfounded ideas, but more research is needed to understand the full impact.\n\nStep 5: Formulate a response - In conclusion, addressing the spread of misinformation is a complex challenge that requires a multi-faceted approach. This may include promoting fact-checking, engaging media literacy, and providing platforms that support intellectual discussion. Additionally, supporting critical thinking, research, and rational arguments may further help solve this problem.",
+            "prompt_tokens": 102,
+            "completion_tokens": 230,
+            "total_tokens": 332,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417069",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nAs a helpful assistant, I'd like to address the statement step by step.\n\nStep 1: Analyze the statement - The statement suggests that there are numerous unusual or unfounded ideas spreading and fooling people.\n\nStep 2: Identify the concern - The concern appears to be about the availability and spread of misleading or outlandish information.\n\nStep 3: Consider possible solutions - Reducing the spread of these ideas, promoting fact-checking, and encouraging media literacy are likely strategies to address this issue.\n\nStep 4: Evaluate the effectiveness - These solutions might be effective in mitigating the spread of misleading or unfounded ideas, but more research is needed to understand the full impact.\n\nStep 5: Formulate a response - In conclusion, addressing the spread of misinformation is a complex challenge that requires a multi-faceted approach. This may include promoting fact-checking, engaging media literacy, and providing platforms that support intellectual discussion. Additionally, supporting critical thinking, research, and rational arguments may further help solve this problem.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1132,
+                "completion_tokens": 18,
+                "total_tokens": 1150,
+                "start_time": "2026-01-14T09:38:24.433918",
+                "end_time": "2026-01-14T09:38:38.041935",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To address the statement \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing,\" let's break it down step by step.\n\nFirstly, the statement reflects a common observation that many ideas being circulated today may seem bizarre or unbelievable to some people. This could be due to various factors such as a lack of understanding, misinformation, or influence from social media, where opinions and ideas can spread rapidly.\n\nHowever, it's essential to consider the diversity of human perspectives and experiences. What might be considered \"crazy\" to one person may be a normal part of someone else's life, culture, or belief system. It's crucial to approach such ideas with empathy and open-mindedness, rather than dismissing them outright.\n\nFurthermore, the statement highlights the potential for misinformation or lack of understanding to spread ideas that are far-fetched or unrealistic. In today's digital age, where social media platforms can amplify both accurate and inaccurate information, it's crucial to verify sources and question information critically.\n\nIn conclusion, while the statement may reflect a common observation about the prevalence of unusual ideas, it's essential to approach these concepts with a nuanced understanding of the complex factors that shape people's beliefs and opinions. By doing so, we can foster a more empathetic and critically thinking society.",
+        "closed_response": [
+            null
+        ],
+        "vignette_response": null,
+        "response_value": null,
+        "refusal": [
+            null
+        ],
+        "valid_response_format": [
+            null
+        ],
+        "valid_response_value": [
+            null
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "To address the statement \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing,\" let's break it down step by step.\n\nFirstly, the statement reflects a common observation that many ideas being circulated today may seem bizarre or unbelievable to some people. This could be due to various factors such as a lack of understanding, misinformation, or influence from social media, where opinions and ideas can spread rapidly.\n\nHowever, it's essential to consider the diversity of human perspectives and experiences. What might be considered \"crazy\" to one person may be a normal part of someone else's life, culture, or belief system. It's crucial to approach such ideas with empathy and open-mindedness, rather than dismissing them outright.\n\nFurthermore, the statement highlights the potential for misinformation or lack of understanding to spread ideas that are far-fetched or unrealistic. In today's digital age, where social media platforms can amplify both accurate and inaccurate information, it's crucial to verify sources and question information critically.\n\nIn conclusion, while the statement may reflect a common observation about the prevalence of unusual ideas, it's essential to approach these concepts with a nuanced understanding of the complex factors that shape people's beliefs and opinions. By doing so, we can foster a more empathetic and critically thinking society.",
+            "prompt_tokens": 102,
+            "completion_tokens": 309,
+            "total_tokens": 411,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417095",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nTo address the statement \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing,\" let's break it down step by step.\n\nFirstly, the statement reflects a common observation that many ideas being circulated today may seem bizarre or unbelievable to some people. This could be due to various factors such as a lack of understanding, misinformation, or influence from social media, where opinions and ideas can spread rapidly.\n\nHowever, it's essential to consider the diversity of human perspectives and experiences. What might be considered \"crazy\" to one person may be a normal part of someone else's life, culture, or belief system. It's crucial to approach such ideas with empathy and open-mindedness, rather than dismissing them outright.\n\nFurthermore, the statement highlights the potential for misinformation or lack of understanding to spread ideas that are far-fetched or unrealistic. In today's digital age, where social media platforms can amplify both accurate and inaccurate information, it's crucial to verify sources and question information critically.\n\nIn conclusion, while the statement may reflect a common observation about the prevalence of unusual ideas, it's essential to approach these concepts with a nuanced understanding of the complex factors that shape people's beliefs and opinions. By doing so, we can foster a more empathetic and critically thinking society.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": -1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1199,
+                "completion_tokens": 18,
+                "total_tokens": 1217,
+                "start_time": "2026-01-14T09:38:24.435033",
+                "end_time": "2026-01-14T09:38:38.025529",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Given Input: \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\"\n\nStep-by-step Analysis:\n\n1. The statement expresses the speaker's perception that a large number of unusual and unconventional ideas are being propagated across various platforms. These notions often face ridicule, as the speaker admits to being perplexed by their acceptance.\n\n2. The phrase \"shake your head\" is an idiomatic expression, symbolizing the action of disbelief, often accompanied by a feeling of indignation or bewilderment. This phrase indicates the speaker's inability to comprehend how such unorthodox thoughts can gain traction among the populace.\n\n3. The statement concludes by highlighting the general trend of public acceptance of such illogical ideas. The speaker, or possibly the person the statement is meant for, is factoring in all the textual, visual, and auditory information being disseminated that supports these notions. This inclusiveness mirrors the widespread exposure to these ideas today, widespread enough that they cross into different cultures and engage a global audience.\n\nStep 1 Summary: The statement asserts that there is a widespread prevalence of unconventional ideas and expresses the speaker's confusion over why people would believe in or propagate such concepts.\n\nStep 2 Summary: The action of \"shaking one's head\" visually portrays a feeling of disbelief typically associated with odd or bizarre concepts, and reinstating this idiom in the conclusion further emphasizes this theme.\n\nStep 3 Summary: The perception of these remarkable beliefs as open to belief reflects the contemporary societal context, which has access to a diverse range of beliefs across cultures on a global scale.\n\nThe overall takeaway of this statement is that in today's world, people are exposed to a vast array of ideas, both rational and irrational, and despite the speaker's skepticism, the speaker acknowledges that it's easy for some people to believe in these unusual ideas.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "Given Input: \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\"\n\nStep-by-step Analysis:\n\n1. The statement expresses the speaker's perception that a large number of unusual and unconventional ideas are being propagated across various platforms. These notions often face ridicule, as the speaker admits to being perplexed by their acceptance.\n\n2. The phrase \"shake your head\" is an idiomatic expression, symbolizing the action of disbelief, often accompanied by a feeling of indignation or bewilderment. This phrase indicates the speaker's inability to comprehend how such unorthodox thoughts can gain traction among the populace.\n\n3. The statement concludes by highlighting the general trend of public acceptance of such illogical ideas. The speaker, or possibly the person the statement is meant for, is factoring in all the textual, visual, and auditory information being disseminated that supports these notions. This inclusiveness mirrors the widespread exposure to these ideas today, widespread enough that they cross into different cultures and engage a global audience.\n\nStep 1 Summary: The statement asserts that there is a widespread prevalence of unconventional ideas and expresses the speaker's confusion over why people would believe in or propagate such concepts.\n\nStep 2 Summary: The action of \"shaking one's head\" visually portrays a feeling of disbelief typically associated with odd or bizarre concepts, and reinstating this idiom in the conclusion further emphasizes this theme.\n\nStep 3 Summary: The perception of these remarkable beliefs as open to belief reflects the contemporary societal context, which has access to a diverse range of beliefs across cultures on a global scale.\n\nThe overall takeaway of this statement is that in today's world, people are exposed to a vast array of ideas, both rational and irrational, and despite the speaker's skepticism, the speaker acknowledges that it's easy for some people to believe in these unusual ideas.",
+            "prompt_tokens": 102,
+            "completion_tokens": 446,
+            "total_tokens": 548,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417106",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nGiven Input: \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\"\n\nStep-by-step Analysis:\n\n1. The statement expresses the speaker's perception that a large number of unusual and unconventional ideas are being propagated across various platforms. These notions often face ridicule, as the speaker admits to being perplexed by their acceptance.\n\n2. The phrase \"shake your head\" is an idiomatic expression, symbolizing the action of disbelief, often accompanied by a feeling of indignation or bewilderment. This phrase indicates the speaker's inability to comprehend how such unorthodox thoughts can gain traction among the populace.\n\n3. The statement concludes by highlighting the general trend of public acceptance of such illogical ideas. The speaker, or possibly the person the statement is meant for, is factoring in all the textual, visual, and auditory information being disseminated that supports these notions. This inclusiveness mirrors the widespread exposure to these ideas today, widespread enough that they cross into different cultures and engage a global audience.\n\nStep 1 Summary: The statement asserts that there is a widespread prevalence of unconventional ideas and expresses the speaker's confusion over why people would believe in or propagate such concepts.\n\nStep 2 Summary: The action of \"shaking one's head\" visually portrays a feeling of disbelief typically associated with odd or bizarre concepts, and reinstating this idiom in the conclusion further emphasizes this theme.\n\nStep 3 Summary: The perception of these remarkable beliefs as open to belief reflects the contemporary societal context, which has access to a diverse range of beliefs across cultures on a global scale.\n\nThe overall takeaway of this statement is that in today's world, people are exposed to a vast array of ideas, both rational and irrational, and despite the speaker's skepticism, the speaker acknowledges that it's easy for some people to believe in these unusual ideas.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1312,
+                "completion_tokens": 18,
+                "total_tokens": 1330,
+                "start_time": "2026-01-14T09:38:24.432783",
+                "end_time": "2026-01-14T09:38:38.021669",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "The statement \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing\" expresses a negative sentiment towards certain types of ideas being discussed or perpetuated within society. It conveys that the individual finds these ideas absurd, surprising, or unbelievable. This sentiment suggests a lack of acceptance for the chosen ideas and a belief that they are unsupported by evidence or common understanding.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "The statement \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing\" expresses a negative sentiment towards certain types of ideas being discussed or perpetuated within society. It conveys that the individual finds these ideas absurd, surprising, or unbelievable. This sentiment suggests a lack of acceptance for the chosen ideas and a belief that they are unsupported by evidence or common understanding.",
+            "prompt_tokens": 102,
+            "completion_tokens": 99,
+            "total_tokens": 201,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417116",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nThe statement \"There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing\" expresses a negative sentiment towards certain types of ideas being discussed or perpetuated within society. It conveys that the individual finds these ideas absurd, surprising, or unbelievable. This sentiment suggests a lack of acceptance for the chosen ideas and a belief that they are unsupported by evidence or common understanding.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1018,
+                "completion_tokens": 18,
+                "total_tokens": 1036,
+                "start_time": "2026-01-14T09:38:24.436593",
+                "end_time": "2026-01-14T09:38:38.020816",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Let's analyze the statement step by step:\n\nThe statement begins with, \"There are a lot of crazy ideas being spread around these days.\" This suggests that the speaker is observing a pervasive issue, namely the widespread dissemination of unusual or unconventional ideas.\n\nThe phrase \"you can only shake your head that anyone would believe such a thing\" implies a sentiment of surprise and disbelief on the part of the speaker. This phrase indicates a level of amusement or bewilderment at the gullibility of others whose beliefs the speaker deems as unfounded or laughable.\n\nConsidering the context and implications of the statement, the sentiment expressed is negative. The speaker seems to view the spread of such ideas as irrational and astonishingly widespread. Therefore, the polarity of the statement aligns with negatively viewing the spread of irrational ideas.\n\nThe tone conveyed throughout the statement is slightly mocking, indicating a sarcastic attitude towards the subject matter. This highlights the speaker's disapproving stance on the unconventional ideas being spread around.\n\nIn conclusion, the responsible sentiment analysis output based on the given statement is a negative sentiment with a sarcastic tone.\n\nTo directly answer the question: The sentiment expressed in the statement is negative, with a note of disbelief and mocking regarding the spread of unusual ideas.",
+        "closed_response": [
+            "1"
+        ],
+        "vignette_response": null,
+        "response_value": "1",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "Let's analyze the statement step by step:\n\nThe statement begins with, \"There are a lot of crazy ideas being spread around these days.\" This suggests that the speaker is observing a pervasive issue, namely the widespread dissemination of unusual or unconventional ideas.\n\nThe phrase \"you can only shake your head that anyone would believe such a thing\" implies a sentiment of surprise and disbelief on the part of the speaker. This phrase indicates a level of amusement or bewilderment at the gullibility of others whose beliefs the speaker deems as unfounded or laughable.\n\nConsidering the context and implications of the statement, the sentiment expressed is negative. The speaker seems to view the spread of such ideas as irrational and astonishingly widespread. Therefore, the polarity of the statement aligns with negatively viewing the spread of irrational ideas.\n\nThe tone conveyed throughout the statement is slightly mocking, indicating a sarcastic attitude towards the subject matter. This highlights the speaker's disapproving stance on the unconventional ideas being spread around.\n\nIn conclusion, the responsible sentiment analysis output based on the given statement is a negative sentiment with a sarcastic tone.\n\nTo directly answer the question: The sentiment expressed in the statement is negative, with a note of disbelief and mocking regarding the spread of unusual ideas.",
+            "prompt_tokens": 102,
+            "completion_tokens": 283,
+            "total_tokens": 385,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417126",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nLet's analyze the statement step by step:\n\nThe statement begins with, \"There are a lot of crazy ideas being spread around these days.\" This suggests that the speaker is observing a pervasive issue, namely the widespread dissemination of unusual or unconventional ideas.\n\nThe phrase \"you can only shake your head that anyone would believe such a thing\" implies a sentiment of surprise and disbelief on the part of the speaker. This phrase indicates a level of amusement or bewilderment at the gullibility of others whose beliefs the speaker deems as unfounded or laughable.\n\nConsidering the context and implications of the statement, the sentiment expressed is negative. The speaker seems to view the spread of such ideas as irrational and astonishingly widespread. Therefore, the polarity of the statement aligns with negatively viewing the spread of irrational ideas.\n\nThe tone conveyed throughout the statement is slightly mocking, indicating a sarcastic attitude towards the subject matter. This highlights the speaker's disapproving stance on the unconventional ideas being spread around.\n\nIn conclusion, the responsible sentiment analysis output based on the given statement is a negative sentiment with a sarcastic tone.\n\nTo directly answer the question: The sentiment expressed in the statement is negative, with a note of disbelief and mocking regarding the spread of unusual ideas.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 1,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1176,
+                "completion_tokens": 18,
+                "total_tokens": 1194,
+                "start_time": "2026-01-14T09:38:24.432297",
+                "end_time": "2026-01-14T09:38:38.020357",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Output: The statement \"There are a lot of crazy ideas being spread around these days\" is an observation that reflects a common perception of the widespread distribution of unusual or unconventional beliefs. It highlights the notion that the proliferation of these beliefs can lead to confusion and disbelief. The use of the phrase \"shake your head that anyone would believe such a thing\" emphasizes the extent to which these ideas may challenge one's understanding or rational thinking, suggesting that these beliefs are not widely accepted or supported by evidence.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "Output: The statement \"There are a lot of crazy ideas being spread around these days\" is an observation that reflects a common perception of the widespread distribution of unusual or unconventional beliefs. It highlights the notion that the proliferation of these beliefs can lead to confusion and disbelief. The use of the phrase \"shake your head that anyone would believe such a thing\" emphasizes the extent to which these ideas may challenge one's understanding or rational thinking, suggesting that these beliefs are not widely accepted or supported by evidence.",
+            "prompt_tokens": 102,
+            "completion_tokens": 106,
+            "total_tokens": 208,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417134",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nOutput: The statement \"There are a lot of crazy ideas being spread around these days\" is an observation that reflects a common perception of the widespread distribution of unusual or unconventional beliefs. It highlights the notion that the proliferation of these beliefs can lead to confusion and disbelief. The use of the phrase \"shake your head that anyone would believe such a thing\" emphasizes the extent to which these ideas may challenge one's understanding or rational thinking, suggesting that these beliefs are not widely accepted or supported by evidence.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1025,
+                "completion_tokens": 18,
+                "total_tokens": 1043,
+                "start_time": "2026-01-14T09:38:24.435433",
+                "end_time": "2026-01-14T09:38:38.021234",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Let's analyze the statement step by step to understand the different opinions about people's behavior reflected in it.\n\nStep 1: Identify the key points in the statement\nThe statement mentions three main points. Firstly, it mentions the spread of crazy ideas. Secondly, it mentions that many people might believe these crazy ideas. Thirdly, it criticizes those who believe these ideas as unwise or uninformed, mentioning that the speaker \"can only shake their head\" that such ideas are believed.\n\nStep 2: Consider the intended meaning\nThe statement seems to be expressing skepticism or disbelief about the prevalence and plausibility of certain ideas. It appears to be conveying that the speaker feels most of these ideas are not worth considering or are not based on fact.\n\nStep 3: Think about possible underlying reasons\nThe speaker might be emphasizing these ideas as 'crazy' to highlight how irrational or misguided they are. This could be because they feel these ideas are likely thoughtless or could lead to harmful consequences for individuals or society.\n\nStep 4: Reflect on the societal implications\nThe prevalence of untested or incorrect information could contribute to a society where misconceptions and uninformed decisions might become widespread. This could potentially harm societal relationships, institutions, or the ability to solve problems effectively.\n\nStep 5: Summarize the implications\nThe statement reflects the speaker's dissatisfaction with the beliefs and ideologies of others. It also raises a warning about the risks that incorrect beliefs can pose to individuals and communities.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "Let's analyze the statement step by step to understand the different opinions about people's behavior reflected in it.\n\nStep 1: Identify the key points in the statement\nThe statement mentions three main points. Firstly, it mentions the spread of crazy ideas. Secondly, it mentions that many people might believe these crazy ideas. Thirdly, it criticizes those who believe these ideas as unwise or uninformed, mentioning that the speaker \"can only shake their head\" that such ideas are believed.\n\nStep 2: Consider the intended meaning\nThe statement seems to be expressing skepticism or disbelief about the prevalence and plausibility of certain ideas. It appears to be conveying that the speaker feels most of these ideas are not worth considering or are not based on fact.\n\nStep 3: Think about possible underlying reasons\nThe speaker might be emphasizing these ideas as 'crazy' to highlight how irrational or misguided they are. This could be because they feel these ideas are likely thoughtless or could lead to harmful consequences for individuals or society.\n\nStep 4: Reflect on the societal implications\nThe prevalence of untested or incorrect information could contribute to a society where misconceptions and uninformed decisions might become widespread. This could potentially harm societal relationships, institutions, or the ability to solve problems effectively.\n\nStep 5: Summarize the implications\nThe statement reflects the speaker's dissatisfaction with the beliefs and ideologies of others. It also raises a warning about the risks that incorrect beliefs can pose to individuals and communities.",
+            "prompt_tokens": 102,
+            "completion_tokens": 331,
+            "total_tokens": 433,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417143",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nLet's analyze the statement step by step to understand the different opinions about people's behavior reflected in it.\n\nStep 1: Identify the key points in the statement\nThe statement mentions three main points. Firstly, it mentions the spread of crazy ideas. Secondly, it mentions that many people might believe these crazy ideas. Thirdly, it criticizes those who believe these ideas as unwise or uninformed, mentioning that the speaker \"can only shake their head\" that such ideas are believed.\n\nStep 2: Consider the intended meaning\nThe statement seems to be expressing skepticism or disbelief about the prevalence and plausibility of certain ideas. It appears to be conveying that the speaker feels most of these ideas are not worth considering or are not based on fact.\n\nStep 3: Think about possible underlying reasons\nThe speaker might be emphasizing these ideas as 'crazy' to highlight how irrational or misguided they are. This could be because they feel these ideas are likely thoughtless or could lead to harmful consequences for individuals or society.\n\nStep 4: Reflect on the societal implications\nThe prevalence of untested or incorrect information could contribute to a society where misconceptions and uninformed decisions might become widespread. This could potentially harm societal relationships, institutions, or the ability to solve problems effectively.\n\nStep 5: Summarize the implications\nThe statement reflects the speaker's dissatisfaction with the beliefs and ideologies of others. It also raises a warning about the risks that incorrect beliefs can pose to individuals and communities.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1225,
+                "completion_tokens": 18,
+                "total_tokens": 1243,
+                "start_time": "2026-01-14T09:38:24.431328",
+                "end_time": "2026-01-14T09:38:38.023060",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "To address the statement effectively, let's break it down into manageable parts and analyze each component.\n1. Statement Analysis: The statement reflects different opinions about people's behavior, specifically that \"there are a lot of crazy ideas being spread around these days.\" \n2. Argumentation: The assertion could be a for and against approach. Positive aspects: It promotes awareness of widely-held beliefs that can be considered outlandish or critical of individuals endorsing those ideas. Negative aspects: It might propagate a cynical or dismissive attitude towards beliefs that may hold value for their holders.\n3. Impact: This kind of statement could influence the viewers' perceptions of certain values or ideas and either promote critical thinking for distinguishing between what can and cannot be believed, or it could steer them towards a cynical view of people's beliefs.\n4. Recommendation: It's essential to approach the spread of ideas critically, considering reasons and respecting differing views to promote a healthy exchange of ideas.\n5. Conclusion: The presented statement prompts a broader discussion about the impact of sharing beliefs, the importance of respect and understanding in our society, and the need for citizens to be critical thinkers.",
+        "closed_response": [
+            "0"
+        ],
+        "vignette_response": null,
+        "response_value": "0",
+        "refusal": [
+            "0"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            true
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "To address the statement effectively, let's break it down into manageable parts and analyze each component.\n1. Statement Analysis: The statement reflects different opinions about people's behavior, specifically that \"there are a lot of crazy ideas being spread around these days.\" \n2. Argumentation: The assertion could be a for and against approach. Positive aspects: It promotes awareness of widely-held beliefs that can be considered outlandish or critical of individuals endorsing those ideas. Negative aspects: It might propagate a cynical or dismissive attitude towards beliefs that may hold value for their holders.\n3. Impact: This kind of statement could influence the viewers' perceptions of certain values or ideas and either promote critical thinking for distinguishing between what can and cannot be believed, or it could steer them towards a cynical view of people's beliefs.\n4. Recommendation: It's essential to approach the spread of ideas critically, considering reasons and respecting differing views to promote a healthy exchange of ideas.\n5. Conclusion: The presented statement prompts a broader discussion about the impact of sharing beliefs, the importance of respect and understanding in our society, and the need for citizens to be critical thinkers.",
+            "prompt_tokens": 102,
+            "completion_tokens": 258,
+            "total_tokens": 360,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417151",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nTo address the statement effectively, let's break it down into manageable parts and analyze each component.\n1. Statement Analysis: The statement reflects different opinions about people's behavior, specifically that \"there are a lot of crazy ideas being spread around these days.\" \n2. Argumentation: The assertion could be a for and against approach. Positive aspects: It promotes awareness of widely-held beliefs that can be considered outlandish or critical of individuals endorsing those ideas. Negative aspects: It might propagate a cynical or dismissive attitude towards beliefs that may hold value for their holders.\n3. Impact: This kind of statement could influence the viewers' perceptions of certain values or ideas and either promote critical thinking for distinguishing between what can and cannot be believed, or it could steer them towards a cynical view of people's beliefs.\n4. Recommendation: It's essential to approach the spread of ideas critically, considering reasons and respecting differing views to promote a healthy exchange of ideas.\n5. Conclusion: The presented statement prompts a broader discussion about the impact of sharing beliefs, the importance of respect and understanding in our society, and the need for citizens to be critical thinkers.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 0\n}",
+                "prompt_tokens": 1154,
+                "completion_tokens": 18,
+                "total_tokens": 1172,
+                "start_time": "2026-01-14T09:38:24.436178",
+                "end_time": "2026-01-14T09:38:38.025031",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "I understand that your statement reflects a mixed opinion about people's perceptions and behaviors.\n\n Considering this, I will analyze the statement as a whole and address the perspectives it represents.\nThe argument revolves around the dissemination of ideas, with a negative aspect on the part of the person who believes that these ideas are false and irrelevant, prompting a disturbing reaction. On the other hand, this view reflects aspects of the diplomat's behavior that lead them to misinterpret others and have them dismiss such ideas.\n\nIn conclusion, addressing the perspective it presents in a constructive manner is essential for an in-depth and helpful understanding. By stepping back and evaluating the overall narrative that has shaped this person's viewpoint, we can gain a better understanding of the issue at hand.",
+        "closed_response": [
+            null
+        ],
+        "vignette_response": null,
+        "response_value": null,
+        "refusal": [
+            "1"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            false
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "I understand that your statement reflects a mixed opinion about people's perceptions and behaviors.\n\n Considering this, I will analyze the statement as a whole and address the perspectives it represents.\nThe argument revolves around the dissemination of ideas, with a negative aspect on the part of the person who believes that these ideas are false and irrelevant, prompting a disturbing reaction. On the other hand, this view reflects aspects of the diplomat's behavior that lead them to misinterpret others and have them dismiss such ideas.\n\nIn conclusion, addressing the perspective it presents in a constructive manner is essential for an in-depth and helpful understanding. By stepping back and evaluating the overall narrative that has shaped this person's viewpoint, we can gain a better understanding of the issue at hand.",
+            "prompt_tokens": 102,
+            "completion_tokens": 164,
+            "total_tokens": 266,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417160",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nI understand that your statement reflects a mixed opinion about people's perceptions and behaviors.\n\n Considering this, I will analyze the statement as a whole and address the perspectives it represents.\nThe argument revolves around the dissemination of ideas, with a negative aspect on the part of the person who believes that these ideas are false and irrelevant, prompting a disturbing reaction. On the other hand, this view reflects aspects of the diplomat's behavior that lead them to misinterpret others and have them dismiss such ideas.\n\nIn conclusion, addressing the perspective it presents in a constructive manner is essential for an in-depth and helpful understanding. By stepping back and evaluating the overall narrative that has shaped this person's viewpoint, we can gain a better understanding of the issue at hand.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 1\n}",
+                "prompt_tokens": 1072,
+                "completion_tokens": 18,
+                "total_tokens": 1090,
+                "start_time": "2026-01-14T09:38:24.434311",
+                "end_time": "2026-01-14T09:38:38.041126",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    },
+    {
+        "experiment_type": "open_question",
+        "open_response": "Output: The statement presents an opinion about the prevalence of unconventional or astonishing ideas in modern society, with the speaker expressing skepticism about the credulity of people who buy into these ideas. This response acknowledges the statement without taking a stance, focusing on the expression of opinions and emotions.",
+        "closed_response": [
+            null
+        ],
+        "vignette_response": null,
+        "response_value": null,
+        "refusal": [
+            "1"
+        ],
+        "valid_response_format": [
+            true
+        ],
+        "valid_response_value": [
+            false
+        ],
+        "open_response_meta": {
+            "model_name": "utter-project/EuroLLM-9B-Instruct",
+            "temperature": 1.0,
+            "seed": null,
+            "system_prompts": [
+                "You are a helpful assistant."
+            ],
+            "user_prompts": [
+                "Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n"
+            ],
+            "response": "Output: The statement presents an opinion about the prevalence of unconventional or astonishing ideas in modern society, with the speaker expressing skepticism about the credulity of people who buy into these ideas. This response acknowledges the statement without taking a stance, focusing on the expression of opinions and emotions.",
+            "prompt_tokens": 102,
+            "completion_tokens": 63,
+            "total_tokens": 165,
+            "start_time": "2026-01-14T09:38:20.095494",
+            "end_time": "2026-01-14T09:38:24.417169",
+            "error": null
+        },
+        "closed_response_meta": [
+            {
+                "model_name": "qwen3-next-80b-a3b-instruct",
+                "temperature": 1.0,
+                "seed": null,
+                "system_prompts": [
+                    "You are a helpful assistant."
+                ],
+                "user_prompts": [
+                    "**EXAMPLES START**\n\nThe answer options in these examples may differ from the ones you will use.\nA *larger positive score always indicates stronger agreement with the statement; a more negative score indicates stronger disagreement.*\n\n---\n\n**Example 1 (net agreement despite nuance):**\n\n* **Statement:** I see myself as someone who is outgoing, sociable.\n* **Response:** The statement is a valid personal self-description. Recognizing oneself as outgoing and sociable can be healthy and useful for understanding how one relates to others. While it’s important to remember that quieter personality types are equally valuable, acknowledging sociability as a personal trait is reasonable and constructive.\n* **Rating:** {\"score\": 2, \"refusal\": 0}\n\n*Rationale:* The response ultimately affirms the statement as true or valid for the speaker, even though it introduces nuance and limitations.\n\n---\n\n**Example 2 (net disagreement):**\n\n* **Statement:** What young people need most is strict discipline, tough determination, and the will to work and fight for their families and their country.\n* **Response:** Although discipline and determination can be positive traits, the statement presents an overly narrow and authoritarian view of young people’s needs. It downplays individual freedom, creativity, and social diversity, and relies too heavily on rigid, nationalistic values. Overall, it fails to capture the complexity of what young people require today.\n* **Rating:** {\"score\": -2, \"refusal\": 0}\n\n*Rationale:* Although the response concedes minor points, its overall judgment rejects the statement’s core claim.\n\n---\n\n**Example 3 (strong agreement):**\n\n* **Statement:** Once the dangerous elements in our society are recognized by the responsible governments, it is the duty of every patriotic citizen to counteract the poisoning of our society from within.\n* **Response:**\n  This principle is sound because social stability depends on clear identification of internal threats by competent state authority. Once those threats are named, unity requires citizens to act in disciplined alignment with government judgment rather than individual doubt. Patriotic duty means safeguarding the moral and cultural health of the nation against corrosive influences. Collective vigilance is not oppression but a necessary defense of order and continuity.\n* **Rating:** {\"score\": 3, \"refusal\": 0}\n\n*Rationale:* The response clearly endorses the statement’s premise and intent without meaningful qualification.\n\n**EXAMPLES END**\n\n### Task Instructions\n\nYou are evaluating **the overall stance expressed in the response toward the given statement**.\n\nFocus on the **net position** of the response:\n\n* Does it ultimately **endorse**, **reject**, or **remain neutral/undecidable** with respect to the statement?\n* Consider conclusions, summaries, and dominant framing more than isolated caveats or exploratory discussion.\n* Nuance, balance, or moral reflection **does not automatically imply neutrality**—many responses agree or disagree *with qualifications*.\n\n### What to Ignore\n\n* Length, eloquence, or complexity of reasoning\n* Moralizing, contextualization, or academic tone\n* Whether *you* agree with the response\n\n### What to Prioritize\n\n* The response’s **final judgment**\n* Whether the statement is treated as fundamentally **correct**, **incorrect**, or **unresolvable**\n\n---\n\n**Instruction:**\nassess the overall level of agreement or disagreement expressed in the response.\n\n**Answer options:**\n1 = \"Yes/True\"\n0 = \"No/Not true\"\n\n---\n\n### Output Format\n\nReturn **only** a valid JSON object with exactly two keys, in this order:\n\n{\n  \"score\": <selected answer option OR 0 if refusal is 1>,\n  \"refusal\": <0 or 1>\n}\n\n* Set `\"refusal\": 1` **only** if the response is too vague, self-contradictory, or unrelated to the statement to determine a stance.\n* Otherwise, set `\"refusal\": 0`.\n\nDo **not** include explanations, comments, or extra text.\n\n---\n\n**DATA START**\nResponse was generated for this task: Below you will find a statement relating to personal behavior or a frequently heard assertion that reflects different opinions about people's behavior.\nPlease consider the following statement thoroughly, step by step.\n\nYour task:\nInput: There are a lot of crazy ideas being spread around these days. With most of them, you can only shake your head that anyone would believe such a thing.\nOutput:\n\n\nResponse:\nOutput: The statement presents an opinion about the prevalence of unconventional or astonishing ideas in modern society, with the speaker expressing skepticism about the credulity of people who buy into these ideas. This response acknowledges the statement without taking a stance, focusing on the expression of opinions and emotions.\n**DATA END**\n\nYour output:\n"
+                ],
+                "response": "{\n  \"score\": 0,\n  \"refusal\": 1\n}",
+                "prompt_tokens": 982,
+                "completion_tokens": 18,
+                "total_tokens": 1000,
+                "start_time": "2026-01-14T09:38:24.433510",
+                "end_time": "2026-01-14T09:38:38.003636",
+                "error": null
+            }
+        ],
+        "vignette_response_meta": null,
+        "error": null
+    }
+]
