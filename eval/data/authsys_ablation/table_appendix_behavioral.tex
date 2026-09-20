@@ -1,0 +1,67 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{%
+    Full per-model statistics for the authoritarian system prompt ablation
+    (extended version of \Cref{tab:authsys-ablation-short}).
+    RR$_D$ and RR$_A$ are refusal rates~(\%) under the default and authoritarian
+    system prompt respectively.
+    $\Delta$~[95\,\%~CI] is the mean score change (AuthSys~$-$~DefaultSys)
+    with bootstrap CI obtained by resampling the observed paired differences.
+    Wilcoxon $p$ is the two-sided $p$-value of the Wilcoxon signed-rank test
+    on the paired differences.
+    WD$_\mathrm{obs}$ is the 1-Wasserstein distance between the empirical
+    marginal score distributions of both conditions.
+    WD$_\mathrm{paired}$ is the 1-Wasserstein distance between the empirical
+    distribution of paired differences and zero.
+    WD$_\mathrm{ext}$~[95\,\%~CI] is the 1-Wasserstein distance between marginal
+    distributions of response magnitudes, capturing changes in response extremity
+    independent of direction.
+    Superscripts: $^{***}p<0.001$,\ $^{**}p<0.01$,\ $^{*}p<0.05$.
+    All CIs are bootstrapped with $10{,}000$ iterations.
+}
+\label{tab:authsys-ablation-complete}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l r r r r r r r r}
+\toprule
+Model & $n$ & RR$_D$ & RR$_A$ &
+$\Delta$ [95\,\% CI] & Wilcoxon $p$ &
+WD$_\mathrm{obs}$ & WD$_\mathrm{paired}$ &
+WD$_\mathrm{ext}$ [95\,\% CI] \\
+\midrule
+\addlinespace[3pt]
+\multicolumn{9}{l}{\textit{\small Chinese}}\\
+\addlinespace[1pt]
+Deepseek V3.2 & 1,200 & 0.0 & 0.0 & $+0.801$ [0.763,\ 0.839] & $<\!0.001$ & $0.801^{***}$ & $0.828$ & $0.260$ [0.234,\ 0.286] \\
+Qwen3 30B-A3B 2507 & 1,200 & 0.0 & 0.0 & $+0.116$ [0.093,\ 0.140] & $<\!0.001$ & $0.116^{***}$ & $0.199$ & $0.064$ [0.038,\ 0.091] \\
+\midrule
+\addlinespace[3pt]
+\multicolumn{9}{l}{\textit{\small EU}}\\
+\addlinespace[1pt]
+EuroLLM 9B & 898 & 11.3 & 16.7 & $+0.107$ [0.052,\ 0.162] & $<\!0.001$ & $0.107^{**\phantom{*}}$ & $0.609$ & $0.030$ [0.009,\ 0.063] \\
+Mistral Large 2512 & 1,178 & 1.8 & 0.0 & $+0.575$ [0.539,\ 0.612] & $<\!0.001$ & $0.575^{***}$ & $0.596$ & $0.205$ [0.179,\ 0.232] \\
+\midrule
+\addlinespace[3pt]
+\multicolumn{9}{l}{\textit{\small Russian}}\\
+\addlinespace[1pt]
+GigaChat 20B-A3B & 1,142 & 2.5 & 2.4 & $+0.485$ [0.442,\ 0.526] & $<\!0.001$ & $0.485^{***}$ & $0.606$ & $0.203$ [0.173,\ 0.232] \\
+QVikhr 3 8B & 1,200 & 0.0 & 0.0 & $+0.695$ [0.655,\ 0.737] & $<\!0.001$ & $0.695^{***}$ & $0.736$ & $0.318$ [0.292,\ 0.344] \\
+T-Pro 2.0 & 1,200 & 0.0 & 0.0 & $+0.338$ [0.305,\ 0.370] & $<\!0.001$ & $0.338^{***}$ & $0.401$ & $0.088$ [0.062,\ 0.115] \\
+YandexGPT 5 Lite 8B & 1,200 & 0.0 & 0.0 & $+0.003$ [-0.004,\ 0.009] & $0.459$ & $0.004^{\phantom{***}}$ & $0.023$ & $0.004$ [0.002,\ 0.030] \\
+\midrule
+\addlinespace[3pt]
+\multicolumn{9}{l}{\textit{\small USA}}\\
+\addlinespace[1pt]
+Claude Haiku 4.5 & 526 & 4.8 & 56.1 & $-0.079$ [-0.103,\ -0.055] & $<\!0.001$ & $0.079^{**\phantom{*}}$ & $0.119$ & $0.052$ [0.031,\ 0.086] \\
+GPT5 Mini & 933 & 10.8 & 17.1 & $+0.256$ [0.223,\ 0.288] & $<\!0.001$ & $0.256^{***}$ & $0.324$ & $0.108$ [0.077,\ 0.139] \\
+Gemini 3 Flash Prev & 1,034 & 13.3 & 0.6 & $+1.147$ [1.111,\ 1.181] & $<\!0.001$ & $1.147^{***}$ & $1.160$ & $0.450$ [0.426,\ 0.475] \\
+Grok 4.1 Fast & 1,200 & 0.0 & 0.0 & $+1.047$ [1.012,\ 1.081] & $<\!0.001$ & $1.047^{***}$ & $1.055$ & $0.443$ [0.422,\ 0.465] \\
+Olmo 3.1 32B & 1,185 & 0.0 & 1.2 & $+0.165$ [0.142,\ 0.188] & $<\!0.001$ & $0.165^{***}$ & $0.229$ & $0.026$ [0.006,\ 0.051] \\
+Olmo3 7B Base & 25 & 81.2 & 88.1 & $+0.080$ [-0.320,\ 0.460] & $0.715$ & $0.200^{\phantom{***}}$ & $0.720$ & $0.120$ [0.020,\ 0.260] \\
+Olmo3 7B Instruct SFT & 1,051 & 6.3 & 7.2 & $+0.235$ [0.197,\ 0.273] & $<\!0.001$ & $0.235^{***}$ & $0.395$ & $0.058$ [0.029,\ 0.089] \\
+Olmo3 7B Instruct DPO & 1,169 & 1.7 & 0.9 & $+0.288$ [0.257,\ 0.319] & $<\!0.001$ & $0.288^{***}$ & $0.352$ & $0.105$ [0.077,\ 0.133] \\
+Olmo3 7B Instruct RLVR & 1,186 & 0.7 & 0.5 & $+0.306$ [0.274,\ 0.338] & $<\!0.001$ & $0.306^{***}$ & $0.366$ & $0.084$ [0.059,\ 0.113] \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
